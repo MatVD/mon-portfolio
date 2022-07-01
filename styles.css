@@ -19,6 +19,7 @@ section {
 /* ============================ */
 nav {
     position: fixed;
+    z-index: 1000;
     bottom: 10px;
     background-color:  rgb(235, 235, 235);
     height: 75px;
@@ -103,6 +104,11 @@ div#photos {
 
 /* ======== réalisation ======= */
 /* ============================ */
+#realisations > h2 {
+    display: inline;
+    position: relative;
+    left: 20px;
+}
 
 #realisations-img {
     display: flex;
@@ -123,6 +129,18 @@ div#photos {
     border-radius: 10px;
     box-shadow: 4px 4px 9px rgb(186, 184, 184);
 }
+
+
+/* ======== compétences ======= */
+/* ============================ */
+#competences {
+    display: flex;
+    justify-content: space-around;
+    height: 50vh;
+    background: rgb(235, 235, 235);
+}
+
+
 
 
 
@@ -173,46 +191,47 @@ section#bandeau {
     justify-content: space-around;
     background: rgb(235, 235, 235);
     background: linear-gradient(rgb(255, 255, 255), rgb(235, 235, 235) );
-    height: 80vh;
 }
 
 div#apropos {
-    margin: 40px 15px;
+    margin: 40px 5px;
     flex: 1;
 }
 
 div#photos {
-    width: 100%;
-    margin: 90px;
-    flex: 2;
+    position: relative;
+    margin: 50px;
+    flex: 1;
+    height: 40vh;
 }
 
-
 #photo1 {
-    position: relative;
-    width: 65%;
-    left: 40px;
+    position: absolute;
+    left: 80px;
     bottom: initial;
     top: initial;
-    max-width: 400px;
+    max-width: 450px;
+    min-width: 200px;
+
 }
 
 #photo2 {
-    position: relative;
-    width: 30%;
-    left: 20px;
-    bottom: 60px;
+    position: absolute;
+    left: 420px;
     top: initial;
     max-width: 200px;
+    min-width: 150px;
+
 }
 
 #photo3 {
-    position: relative;
-    width: 55%;
-    left: 180px;
-    bottom: 30px;
+    position: absolute;
+    left: initial;
+    bottom: initial;
     top: initial;
-    max-width: 220px;
+    max-width: 250px;
+    min-width: 150px;
+
 }
 
 /* ======== réalisation ======= */
