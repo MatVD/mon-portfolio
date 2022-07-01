@@ -1,0 +1,44 @@
+/* ========== import ========= */
+
+
+/* ====== reset général ====== */
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ========== navbar ========== */
+nav {
+    background-color: rgb(255, 255, 255);
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    list-style-type: none;
+    margin: 0 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+section {
+    height: 100px;
+    margin-top: 20px;
+}
