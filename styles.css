@@ -144,7 +144,7 @@ div#photos {
 
 
 
-@media screen and (min-width: 599px) {
+@media screen and (min-width: 699px) {
     /* ========== navbar ========== */
     /* ============================ */
 nav {
@@ -195,42 +195,49 @@ section#bandeau {
 
 div#apropos {
     margin: 40px 5px;
+    padding: 20px;
     flex: 1;
 }
 
 div#photos {
     position: relative;
-    margin: 50px;
     flex: 1;
-    height: 40vh;
+    margin: initial;
+    height: 50vh;
+    width: 650px;
 }
 
 #photo1 {
-    position: absolute;
-    left: 80px;
+    position: relative;
+    width: 45%;
+    left: 0px;
     bottom: initial;
-    top: initial;
+    top: 30px;
     max-width: 450px;
     min-width: 200px;
 
 }
 
 #photo2 {
-    position: absolute;
-    left: 420px;
+    position: relative;
+    width: 25%;
+    left: initial;
+    right: 20px;
     top: initial;
+    bottom: 10px;
     max-width: 200px;
-    min-width: 150px;
+    min-width: 120px;
 
 }
 
 #photo3 {
-    position: absolute;
-    left: initial;
+    position: relative;
+    width: 30%;
+    left: 100px;
     bottom: initial;
-    top: initial;
+    top: 0px;
     max-width: 250px;
-    min-width: 150px;
+    min-width: 120px;
 
 }
 
