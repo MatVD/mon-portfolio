@@ -3,7 +3,7 @@
 
 
 
-/* ====== reset général ====== */
+/* ========= général ========= */
 /* =========================== */
 *,
 ::before,
@@ -37,7 +37,7 @@ h1 {
   
 h2 {
     color: #474544;
-    font-size: 28px;
+    font-size: 25px;
     font-weight: 700;
     letter-spacing: 5px;
     text-align: center;
@@ -51,7 +51,7 @@ nav {
     position: fixed;
     z-index: 1000;
     bottom: 10px;
-    background-color:  rgb(235, 235, 235);
+    background-color:  #ebebeb;
     height: 75px;
     width: 92%;
     margin: 0 4%;
@@ -91,45 +91,38 @@ nav > ul > li > a {
 section#bandeau {
     display: flex;
     flex-direction: column;
-    background: rgb(235, 235, 235);
-    background: linear-gradient(rgb(255, 255, 255), rgb(235, 235, 235));
+    height: 80vh;
+    background: linear-gradient(#ffffff, #ebebeb);
+    background: url(medias/photo.webp) no-repeat;
+    background-size: cover;
+}
 
+#bandeau h1 {
+    color: #ffffff;
+}
+
+#bandeau h1 span{
+    color: #ecec38;
 }
 
 div#apropos {
     margin: 15px;
+    color: white;
 }
 
-div#photos {
-    width: 350px;
-    height: auto;
-    margin: 10px auto;
+/* ----- reseaux sociaux ----- */
+#bandeau div.reseaux-sociaux {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+#bandeau div.reseaux-sociaux svg {
+    margin-right: 15px;
+
 }
 
 
-#photo1 {
-    position: relative;
-    left: 5px ;
-    top: 50px;
-    width: 70%;
-    max-width: 350px;
-}
-
-#photo2 {
-    position: relative;
-    left: 230px;
-    bottom: 180px;
-    width: 38%;
-    max-width: 200px;
-}
-
-#photo3 {
-    position: relative;
-    bottom: 10px;
-    left: 5px;
-    width: 55%;
-    max-width: 200px;
-}
 
 
 /* ======== réalisation ======= */
@@ -157,15 +150,15 @@ div#photos {
     width: 100%;
     margin: auto;
     border-radius: 10px;
-    box-shadow: 8px 8px 15px rgb(157, 157, 157);
+    box-shadow: 8px 8px 15px #9d9d9d;
 }
 
 
 /* ======== compétences ======= */
 /* ============================ */
 #competences {
-    background: rgb(235, 235, 235);
-    background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url(medias/puzzle.webp) center center no-repeat;
+    background: #ebebeb;
+    background: linear-gradient(#ffffffb3, #ffffffb3), url(medias/puzzle.webp) center center no-repeat;
 }
 
 #competences div {
@@ -175,32 +168,56 @@ div#photos {
 
 #competences h2 {
     position: relative;
-    background: linear-gradient(rgb(170, 169, 169),rgb(255, 255, 255));
+    background: linear-gradient(#b8b8b8 ,#ffffff);
     border-radius: 10px;
     letter-spacing: 4px;
-    margin: 40px auto 20px auto;
+    margin: 60px auto 20px auto;
     width: 300px;
 }
 
 #competences ul {
-    margin-top: 10px;
     list-style-type: none;
-
 }
+
 
 #competences li {
-    position: relative;
-    left: 20px;
-    line-height: 1.5rem;
+    line-height: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
 }
 
+
 #competences label {
-    padding-right: 10px;
-    font-size: 1.1rem;
+    margin: 5px auto 0 30px;
+}
+
+#competences progress[value] {
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+     appearance: none;
 }
 
 #competences progress {
-    
+    width: 90%;
+    height: 8px;
+    margin: 0 auto 5px auto;
+}
+
+#competences progress[value] {
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #b5b5b5;
+    border-radius: 5px;
+  }
+
+#competences progress[value]::-webkit-progress-value {
+    background-image:
+	   -webkit-linear-gradient(left, #ebebeb,#46c6f1 ,#2489aa);
+    border-radius: 5px;
 }
 
 
@@ -231,8 +248,8 @@ textarea {
 }
 
 #container {
-    background: #F2F3EB;
-  border: solid 3px #474544;
+    background: #e2e2e2;
+  border: solid 2px #474544;
   max-width: 768px;
   margin: 60px auto;
   position: relative;
@@ -460,8 +477,7 @@ section#bandeau {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    background: rgb(235, 235, 235);
-    background: linear-gradient(rgb(255, 255, 255), rgb(235, 235, 235) );
+
 }
 
 div#apropos {
@@ -470,47 +486,6 @@ div#apropos {
     flex: 1;
 }
 
-div#photos {
-    position: relative;
-    flex: 1;
-    margin: initial;
-    height: 50vh;
-    width: 650px;
-}
-
-#photo1 {
-    position: relative;
-    width: 45%;
-    left: 0px;
-    bottom: initial;
-    top: 30px;
-    max-width: 450px;
-    min-width: 200px;
-
-}
-
-#photo2 {
-    position: relative;
-    width: 25%;
-    left: initial;
-    right: 20px;
-    top: initial;
-    bottom: 10px;
-    max-width: 200px;
-    min-width: 120px;
-
-}
-
-#photo3 {
-    position: relative;
-    width: 30%;
-    left: 100px;
-    bottom: initial;
-    top: 0px;
-    max-width: 250px;
-    min-width: 120px;
-
-}
 
 /* ======== réalisation ======= */
 /* ============================ */
@@ -553,5 +528,4 @@ div#photos {
     display: flex;
     justify-content: space-around;
 }
-
 }
