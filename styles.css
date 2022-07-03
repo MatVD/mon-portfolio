@@ -135,21 +135,25 @@ div#photos {
 /* ============================ */
 #competences {
     display: flex;
-    margin-top: 60px;
+    margin-top: 20px;
     justify-content: space-around;
-    height: 70vh;
+    height: 60vh;
     background: rgb(235, 235, 235);
-    background: linear-gradient(rgba(255,255,255,.5), rgba(255,255,255,.5)), url(medias/puzzle.webp) center center no-repeat;
+    background: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url(medias/puzzle.webp) center center no-repeat;
+}
+
+#competences ul {
+    margin-top: 40px;
 }
 
 #competences h2 {
-    opacity: initial;
-    background: linear-gradient(rgba(172, 171, 171, 0.883),rgb(255, 255, 255));
+    background: linear-gradient(rgb(170, 169, 169),rgb(255, 255, 255));
     border-radius: 10px;
     width: 150px;
     text-align: center;
     position: relative;
-    bottom: 15px;
+    margin-top: 50px;
+
 }
 
 
