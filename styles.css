@@ -2,7 +2,6 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 
-
 /* ========= général ========= */
 /* =========================== */
 *,
@@ -17,29 +16,26 @@ html {
   font-family: 'Montserrat', Arial, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  --main-color: #f6f6f6;
+  --h2-color: #474544;
+  --strong-color: #a4a826;
+  --shadow-box1: 0 4px 15px #00000051;
+  --legradient: linear-gradient(135deg, #21abe6df, #f0e7619d,#f7dcdcb7);
 }
 
 body {
-  background: #ffffff;
+  background: var(--main-color);
 }
 
 section {
-    margin-bottom: 70px;
+  margin-bottom: 60px;
 }
-
-h1 {
-    color: #474544;
-    font-size: 32px;
-    font-weight: 700;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-  }
   
 h2 {
-    color: #474544;
-    font-size: 25px;
+    color: var(--h2-color);
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
     text-align: center;
     text-transform: uppercase;
 }
@@ -51,7 +47,7 @@ nav {
     position: fixed;
     z-index: 1000;
     bottom: 10px;
-    background-color:  #ebebeb;
+    background-color:  #d1d0d0;
     height: 75px;
     width: 92%;
     margin: 0 4%;
@@ -59,6 +55,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: inset var(--shadow-box1);
 }
 
 #logo {
@@ -91,22 +88,22 @@ nav > ul > li > a {
 section#bandeau {
     display: flex;
     flex-direction: column;
-    height: 80vh;
-    background: linear-gradient(#ffffff, #ebebeb);
-    background: url(medias/photo.webp) no-repeat;
+    height: 65vh;
+    background: var(--legradient), url(medias/photo.webp) no-repeat;
     background-size: cover;
+    box-shadow: var(--shadow-box1);
 }
 
 #bandeau h1 {
-    color: #ffffff;
-}
-
-#bandeau h1 span{
-    color: #ecec38;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: 900;
+    color: #000000;
 }
 
 div#apropos {
-    margin: 15px;
+    margin: 25px;
     color: white;
 }
 
@@ -114,11 +111,12 @@ div#apropos {
 #bandeau div.reseaux-sociaux {
     display: flex;
     flex-direction: column;
-    margin-left: 15px;
+    margin-top: 10px;
+    
 }
 
 #bandeau div.reseaux-sociaux svg {
-    margin-right: 15px;
+    margin: 10px 25px;
 
 }
 
@@ -127,10 +125,15 @@ div#apropos {
 
 /* ======== réalisation ======= */
 /* ============================ */
+
 #realisations > h2 {
     display: inline;
     position: relative;
-    left: 20px;
+    left: 15px;
+}
+
+#realisations h2 strong {
+    color: var(--strong-color);
 }
 
 #realisations-img {
@@ -140,9 +143,9 @@ div#apropos {
 }
 
 #realisations-img > a {
-    width: 80%;
+    width: 70%;
     display: inline-block;
-    margin-top: 40px;
+    margin-top: 20px;
 }
 
 
@@ -158,7 +161,7 @@ div#apropos {
 /* ============================ */
 #competences {
     background: #ebebeb;
-    background: linear-gradient(#ffffffb3, #ffffffb3), url(medias/puzzle.webp) center center no-repeat;
+    background: linear-gradient(var(--main-color), #ffffffb3), url(medias/puzzle.webp) center center no-repeat;
 }
 
 #competences div {
@@ -168,8 +171,8 @@ div#apropos {
 
 #competences h2 {
     position: relative;
-    background: linear-gradient(#b8b8b8 ,#ffffff);
-    border-radius: 10px;
+    box-shadow: inset var(--shadow-box1);
+    border-radius: 5px;
     letter-spacing: 4px;
     margin: 60px auto 20px auto;
     width: 300px;
@@ -199,8 +202,8 @@ div#apropos {
 }
 
 #competences progress {
-    width: 90%;
-    height: 8px;
+    width: 80%;
+    height: 5px;
     margin: 0 auto 5px auto;
 }
 
@@ -248,7 +251,9 @@ textarea {
 }
 
 #container {
-    background: #e2e2e2;
+  background: #e2e2e2;
+  box-shadow: inset var(--shadow-box1);
+  border-radius: 5px;
   border: solid 2px #474544;
   max-width: 768px;
   margin: 60px auto;
@@ -280,7 +285,7 @@ form {
 }
 
 .email {
-    float: right;
+  float: right;
 	width: 45%;
 }
 
@@ -368,6 +373,7 @@ textarea {
 
 #form_button {
   background: none;
+  border-radius: 5px;
   border: solid 2px #474544;
   color: #474544;
   cursor: pointer;
@@ -436,8 +442,9 @@ textarea {
     /* ============================ */
 nav {
     position: inherit;
-    background-color: rgb(255, 255, 255);
-    height: 95px;
+    box-shadow: initial;
+    background-color: var(--main-color);
+    height: 75px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -445,8 +452,6 @@ nav {
 
 #logo {
     display: initial;
-    height: 70px;
-    width: 70px;
 }
 
 nav > ul {
@@ -460,7 +465,7 @@ nav > ul > li {
     margin-left: 35px;
 }
 
-nav a > svg {
+nav a > svg.logos {
     display: none;
 }
 
@@ -472,18 +477,22 @@ nav > ul > li > a {
 
 /* ========= bandeau ======== */
 /* ========================== */
-section#bandeau {
-    margin-top: 50px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
+#bandeau {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(#ffffff, #ebebeb);
+  background: url(medias/photo.webp) no-repeat;
+  background-size: cover;
 }
 
 div#apropos {
-    margin: 40px 5px;
-    padding: 20px;
-    flex: 1;
+  margin: 20px 15px;
+  padding: 20px;
+}
+
+#bandeau div.reseaux-sociaux svg {
+  margin: 10px 35px;
+  width: 40px;
 }
 
 
