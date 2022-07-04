@@ -92,7 +92,7 @@ section#bandeau {
     display: flex;
     flex-direction: column;
     height: 65vh;
-    background: var(--legradient), url(medias/photo.webp) no-repeat;
+    background: var(--legradient), url(medias/MatVD.webp ) no-repeat;
     background-size: cover;
     background-position: 15% 25%;
     box-shadow: var(--shadow-box1);
@@ -164,8 +164,8 @@ div#apropos {
 /* ============================ */
 #competences {
     background: #ebebeb;
-
     box-shadow: var(--shadow-box1);
+    padding-bottom: 80px;
 }
 
 #competences div {
@@ -182,12 +182,7 @@ div#apropos {
 }
 
 #competences h2 strong{
-  position: relative;
-  display: inline-block;
   color: var(--strong-color);
-  transform: rotate(-20deg);
-  bottom: 10px;
-  right: 7px;
 }
 
 #competences ul {
@@ -240,11 +235,6 @@ progress[value]::-webkit-progress-bar {
 
 /* =========== Forms ========== */
 /* ============================ */
-
-/* section#contact {
-  background: linear-gradient( #ffffff, var(--main-color))
-} */
-
 button {
   overflow: visible;
 }
@@ -272,7 +262,7 @@ textarea {
   box-shadow: inset var(--shadow-box1);
   background: linear-gradient(135deg, #21abe663, #f0e6614d,#f7dcdc52);
   border-radius: 5px;
-  border: solid 2px #474544;
+  border: solid 2px var(--strong-color);
   max-width: 768px;
   margin: 60px auto;
   position: relative;
@@ -280,6 +270,7 @@ textarea {
 
 #container h2 {
   margin-top: 15px;
+  color: var(--strong-color);
 }
 
 form {
