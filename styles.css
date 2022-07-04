@@ -33,7 +33,7 @@ section {
   
 h2 {
     color: var(--h2-color);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
     letter-spacing: 4px;
     text-align: center;
@@ -72,15 +72,17 @@ nav > ul {
 
 nav > ul > li {
     list-style-type: none;
+    text-transform: uppercase;
 }
 
 nav > ul > li > a {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     text-decoration: none;
     align-items: center;
     color: black;
-    font-size: 1.1em;
+    font-size: 0.85em;
 }
 
 /* ========= bandeau ======== */
@@ -91,6 +93,7 @@ section#bandeau {
     height: 65vh;
     background: var(--legradient), url(medias/photo.webp) no-repeat;
     background-size: cover;
+    background-position: 15% 25%;
     box-shadow: var(--shadow-box1);
 }
 
@@ -117,7 +120,6 @@ div#apropos {
 
 #bandeau div.reseaux-sociaux svg {
     margin: 10px 25px;
-
 }
 
 
@@ -161,7 +163,8 @@ div#apropos {
 /* ============================ */
 #competences {
     background: #ebebeb;
-    background: linear-gradient(var(--main-color), #ffffffb3), url(medias/puzzle.webp) center center no-repeat;
+    background: linear-gradient(var(--main-color), #ffffff72), url(medias/puzzle.webp) center center no-repeat;
+    padding-bottom: 50px;
 }
 
 #competences div {
@@ -171,6 +174,7 @@ div#apropos {
 
 #competences h2 {
     position: relative;
+    background: #D1D0D0;
     box-shadow: inset var(--shadow-box1);
     border-radius: 5px;
     letter-spacing: 4px;
@@ -228,6 +232,10 @@ progress[value]::-webkit-progress-bar {
 /* =========== Forms ========== */
 /* ============================ */
 
+section#contact {
+  background: linear-gradient( #ffffff, var(--main-color))
+}
+
 button {
   overflow: visible;
 }
@@ -253,11 +261,16 @@ textarea {
 #container {
   background: #e2e2e2;
   box-shadow: inset var(--shadow-box1);
+  background: linear-gradient(135deg, #21abe663, #f0e6614d,#f7dcdc52);
   border-radius: 5px;
   border: solid 2px #474544;
   max-width: 768px;
   margin: 60px auto;
   position: relative;
+}
+
+#container h2 {
+  margin-top: 15px;
 }
 
 form {
@@ -292,7 +305,7 @@ form {
 input[type='text'], [type='email'], select, textarea {
 	background: none;
   border: none;
-	border-bottom: solid 2px #474544;
+	border-bottom: solid 1px #474544;
 	color: #474544;
 	font-size: 1.000em;
   font-weight: 400;
@@ -437,7 +450,7 @@ textarea {
 }
 
 
-@media screen and (min-width: 699px) {
+@media screen and (min-width: 920px) {
     /* ========== navbar ========== */
     /* ============================ */
 nav {
@@ -461,8 +474,12 @@ nav > ul {
 
 nav > ul > li {
     list-style-type: none;
-    text-align: center;
-    margin-left: 35px;
+    margin-left: 95px;
+    font:;
+}
+
+nav div#logo {
+  background-color: var(--main-color);
 }
 
 nav a > svg.logos {
@@ -477,12 +494,9 @@ nav > ul > li > a {
 
 /* ========= bandeau ======== */
 /* ========================== */
-#bandeau {
-  display: flex;
-  flex-direction: column;
-  background: linear-gradient(#ffffff, #ebebeb);
-  background: url(medias/photo.webp) no-repeat;
-  background-size: cover;
+section#bandeau {
+  height: 65vh;
+  background-position: 10% 30%; 
 }
 
 div#apropos {
@@ -498,9 +512,6 @@ div#apropos {
 
 /* ======== réalisation ======= */
 /* ============================ */
-#realisations {
-    margin-bottom: 80px;
-}
 
 #realisations h2 {
     position: relative;
@@ -523,7 +534,7 @@ div#apropos {
 
 
 #realisations img {
-    width: 80%;
+    width: 60%;
     margin: auto;
     border-radius: 10px;
     box-shadow: 4px 4px 9px rgb(186, 184, 184);
@@ -532,9 +543,18 @@ div#apropos {
 /* ======== compétences ======= */
 /* ============================ */
 #competences {
-    background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,.8)), url(medias/puzzle.webp) center center no-repeat;
+    background: linear-gradient(var(--legradient)), url(medias/puzzle.webp) center center no-repeat;
     background-size: cover;
     display: flex;
     justify-content: space-around;
+    padding: 60px 0;
 }
+
+/* ========== contact ========= */
+/* ============================ */
+
+section#contact {
+  padding: 60px 0;
+}
+
 }
