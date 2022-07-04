@@ -227,7 +227,8 @@ progress[value]::-webkit-progress-bar {
 
 #competences progress[value]::-webkit-progress-value {
     background-image:
-	   -webkit-linear-gradient(left, #21abe6df, #f0e7619d,#f7dcdcb7);
+	   /* -webkit-linear-gradient(left, #21abe6df, #f0e7619d,#f7dcdcb7); */
+     -webkit-linear-gradient(left, #ded778, #b8af2bdb);
     border-radius: 5px;
 }
 
