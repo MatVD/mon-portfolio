@@ -16,9 +16,9 @@ html {
   font-family: 'Montserrat', Arial, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  --main-color: #f6f6f6;
+  --main-color: #f7f5f5;
   --h2-color: #474544;
-  --strong-color: #a4a826;
+  --strong-color: #b8ae2b;
   --shadow-box1: 0 4px 15px #00000051;
   --legradient: linear-gradient(135deg, #21abe6df, #f0e7619d,#f7dcdcb7);
 }
@@ -83,6 +83,7 @@ nav > ul > li > a {
     align-items: center;
     color: black;
     font-size: 0.85em;
+    
 }
 
 /* ========= bandeau ======== */
@@ -145,17 +146,17 @@ div#apropos {
 }
 
 #realisations-img > a {
-    width: 70%;
+    width: 80%;
     display: inline-block;
-    margin-top: 20px;
+    margin: 30px 0;
 }
 
 
 #realisations img {
     width: 100%;
     margin: auto;
-    border-radius: 10px;
-    box-shadow: 8px 8px 15px #9d9d9d;
+    border-radius: 6px;
+    box-shadow: var(--shadow-box1);
 }
 
 
@@ -163,8 +164,8 @@ div#apropos {
 /* ============================ */
 #competences {
     background: #ebebeb;
-    background: linear-gradient(var(--main-color), #ffffff72), url(medias/puzzle.webp) center center no-repeat;
-    padding-bottom: 50px;
+
+    box-shadow: var(--shadow-box1);
 }
 
 #competences div {
@@ -174,12 +175,19 @@ div#apropos {
 
 #competences h2 {
     position: relative;
-    background: #D1D0D0;
-    box-shadow: inset var(--shadow-box1);
-    border-radius: 5px;
     letter-spacing: 4px;
-    margin: 60px auto 20px auto;
-    width: 300px;
+    margin: 60px auto 10px auto;
+    padding: 7px;
+    width: 350px;
+}
+
+#competences h2 strong{
+  position: relative;
+  display: inline-block;
+  color: var(--strong-color);
+  transform: rotate(-20deg);
+  bottom: 10px;
+  right: 7px;
 }
 
 #competences ul {
@@ -188,6 +196,7 @@ div#apropos {
 
 
 #competences li {
+    font-style: italic;
     line-height: 1.8rem;
     display: flex;
     flex-direction: column;
@@ -207,7 +216,7 @@ div#apropos {
 
 #competences progress {
     width: 80%;
-    height: 5px;
+    height: 6px;
     margin: 0 auto 5px auto;
 }
 
@@ -217,13 +226,13 @@ div#apropos {
 }
 
 progress[value]::-webkit-progress-bar {
-    background-color: #b5b5b5;
+    background-color: #ffffff;
     border-radius: 5px;
   }
 
 #competences progress[value]::-webkit-progress-value {
     background-image:
-	   -webkit-linear-gradient(left, #ebebeb,#46c6f1 ,#2489aa);
+	   -webkit-linear-gradient(left, #21abe6df, #f0e7619d,#f7dcdcb7);
     border-radius: 5px;
 }
 
@@ -232,9 +241,9 @@ progress[value]::-webkit-progress-bar {
 /* =========== Forms ========== */
 /* ============================ */
 
-section#contact {
+/* section#contact {
   background: linear-gradient( #ffffff, var(--main-color))
-}
+} */
 
 button {
   overflow: visible;
@@ -475,7 +484,6 @@ nav > ul {
 nav > ul > li {
     list-style-type: none;
     margin-left: 95px;
-    font:;
 }
 
 nav div#logo {
@@ -537,17 +545,15 @@ div#apropos {
     width: 60%;
     margin: auto;
     border-radius: 10px;
-    box-shadow: 4px 4px 9px rgb(186, 184, 184);
+    box-shadow: var(--shadow-box1);
 }
 
 /* ======== compétences ======= */
 /* ============================ */
 #competences {
-    background: linear-gradient(var(--legradient)), url(medias/puzzle.webp) center center no-repeat;
-    background-size: cover;
     display: flex;
     justify-content: space-around;
-    padding: 60px 0;
+    padding-bottom: 70px;
 }
 
 /* ========== contact ========= */
