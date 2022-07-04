@@ -270,7 +270,7 @@ textarea {
 
 #container h2 {
   margin-top: 15px;
-  color: var(--strong-color);
+
 }
 
 form {
@@ -545,6 +545,10 @@ div#apropos {
     display: flex;
     justify-content: space-around;
     padding-bottom: 70px;
+}
+
+#competences progress {
+  width: 90%;
 }
 
 /* ========== contact ========= */
