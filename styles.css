@@ -46,8 +46,8 @@ h2 {
 nav {
     position: fixed;
     z-index: 1000;
-    bottom: 10px;
-    background-color:  #d1d0d0;
+    bottom: 7px;
+    background-color:  #e7e6e6;
     height: 75px;
     width: 92%;
     margin: 0 4%;
@@ -94,7 +94,7 @@ section#bandeau {
     height: 65vh;
     background: var(--legradient), url(medias/MatVD.webp ) no-repeat;
     background-size: cover;
-    background-position: 15% 25%;
+    /* background-position: 5% 25%; */
     box-shadow: var(--shadow-box1);
 }
 
@@ -165,7 +165,7 @@ div#apropos {
 #competences {
     background: #ebebeb;
     box-shadow: var(--shadow-box1);
-    padding-bottom: 80px;
+    padding-bottom: 60px;
 }
 
 #competences div {
@@ -176,9 +176,9 @@ div#apropos {
 #competences h2 {
     position: relative;
     letter-spacing: 4px;
-    margin: 60px auto 10px auto;
+    margin: 40px auto 10px auto;
     padding: 7px;
-    width: 350px;
+    width: 300px;
 }
 
 #competences h2 strong{
@@ -200,7 +200,7 @@ div#apropos {
 
 
 #competences label {
-    margin: 5px auto 0 30px;
+    margin: 5px auto 0 10%;
 }
 
 #competences progress[value] {
@@ -265,7 +265,7 @@ textarea {
   border-radius: 5px;
   border: solid 2px var(--strong-color);
   max-width: 768px;
-  margin: 60px auto;
+  margin: 20px auto;
   position: relative;
 }
 
@@ -275,7 +275,7 @@ textarea {
 }
 
 form {
-  padding: 37.5px;
+  padding: 35.5px;
   margin: 50px 0;
 }
 
@@ -410,11 +410,39 @@ textarea {
   color: #F2F3EB;
 }
 
+
+/* =========== footer ========== */
+/* ============================= */
+
+footer {
+  padding: 30px 0 90px 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  background: #EBEBEB;
+  box-shadow: var(--shadow-box1);
+}
+
+div.reseaux-sociaux {
+  display: flex;
+  justify-content: space-between;
+}
+
+div.reseaux-sociaux a {
+  margin-right: 20px;
+}
+
+/* ========= media querry ========== */
+/* ================================= */
+
+
+
 @media screen and (max-width: 768px) {
   #container {
     margin: 20px auto;
     width: 95%;
   }
+
 }
 
 @media screen and (max-width: 480px) {
@@ -495,7 +523,7 @@ nav > ul > li > a {
 /* ========= bandeau ======== */
 /* ========================== */
 section#bandeau {
-  height: 65vh;
+  height: 75vh;
   background-position: 10% 30%; 
 }
 
@@ -545,7 +573,6 @@ div#apropos {
 #competences {
     display: flex;
     justify-content: space-around;
-    padding-bottom: 70px;
 }
 
 #competences progress {
@@ -556,7 +583,7 @@ div#apropos {
 /* ============================ */
 
 section#contact {
-  padding: 60px 0;
+  padding: 30px 0;
 }
 
 }
