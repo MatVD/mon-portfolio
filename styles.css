@@ -46,22 +46,15 @@ h2 {
 nav {
     position: fixed;
     z-index: 1000;
-    bottom: 7px;
+    bottom: 0;
     background-color:  #e7e6e6;
     height: 75px;
-    width: 92%;
-    margin: 0 4%;
-    border-radius: 5px;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
     box-shadow: inset var(--shadow-box1);
-}
-
-#logo {
-    display: none;
-    /* height: 50px;
-    width: 50px; */
 }
 
 nav > ul {
@@ -83,14 +76,15 @@ nav > ul > li > a {
     align-items: center;
     color: black;
     font-size: 0.85em;
-    
+}
+
+.logos {
+  margin-bottom: 10px;
 }
 
 /* ========= bandeau ======== */
 /* ========================== */
 section#bandeau {
-    display: flex;
-    flex-direction: column;
     height: 65vh;
     background: var(--legradient), url(medias/MatVD.webp ) no-repeat;
     background-size: cover;
@@ -104,26 +98,31 @@ section#bandeau {
     font-size: 1.3em;
     font-weight: 900;
     color: #000000;
+    padding-top: 25px;
 }
 
 div#apropos {
-    margin: 25px;
+    margin-bottom: 25px;
+    margin-left: 25px;
     color: white;
+}
+
+div#apropos > p {
+  margin-top: 10px;
+  font-size: 1.1em;
+  letter-spacing: 2px;
 }
 
 /* ----- reseaux sociaux ----- */
 #bandeau div.reseaux-sociaux {
-    display: flex;
-    flex-direction: column;
     margin-top: 10px;
+    border: 1px solid red;
     
 }
 
 #bandeau div.reseaux-sociaux svg {
     margin: 10px 25px;
 }
-
-
 
 
 /* ======== réalisation ======= */
@@ -418,9 +417,14 @@ footer {
   padding: 30px 0 90px 0;
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-between;
+  justify-content: space-around;
   background: #EBEBEB;
   box-shadow: var(--shadow-box1);
+}
+
+div#copyright {
+  margin-left: 20px;
+  margin-top: 5px;
 }
 
 div.reseaux-sociaux {
@@ -487,27 +491,18 @@ nav {
     box-shadow: initial;
     background-color: var(--main-color);
     height: 75px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
-#logo {
-    display: initial;
-}
 
 nav > ul {
     display: flex;
     justify-content: flex-end;
+
 }
 
 nav > ul > li {
     list-style-type: none;
-    margin-left: 95px;
-}
-
-nav div#logo {
-  background-color: var(--main-color);
+    margin-right: 95px;
 }
 
 nav a > svg.logos {
