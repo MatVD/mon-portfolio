@@ -31,9 +31,9 @@ class Particule {
     // this.y = canvas.height;
     this.x = Math.random() * canvas.width;
     this.y = Math.random() * canvas.height;
-    this.size = Math.random() * 4 + 1;
-    this.speedX = Math.random() * 4 - 1.5;
-    this.speedY = Math.random() * 4 - 1.5;
+    this.size = Math.random() * 3 + 1;
+    this.speedX = Math.random() * 3 - 1.5;
+    this.speedY = Math.random() * 3 - 1.5;
   }
 
   update() {
@@ -50,7 +50,7 @@ class Particule {
 }
 
 function init() {
-  for (let i = 0; i <200; i++) {
+  for (let i = 0; i <150; i++) {
     particulesArray.push(new Particule());
   }
 }
