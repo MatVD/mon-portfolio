@@ -47,14 +47,14 @@ nav {
     position: fixed;
     z-index: 1000;
     bottom: 0;
-    background-color:  #e7e6e6;
+    background-color:  #e1e1e1;
     height: 75px;
     width: 100%;
     border-radius: 5px 5px 0 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset var(--shadow-box1);
+    box-shadow: inset 0 4px 15px #57575751;
 }
 
 nav > ul {
