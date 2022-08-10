@@ -85,10 +85,9 @@ nav > ul > li > a {
 /* ========= bandeau ======== */
 /* ========================== */
 section#bandeau {
-    height: 65vh;
-    background: var(--legradient), url(medias/MatVD.webp ) no-repeat;
+    height: 60vh;
+    background: var(--legradient), url(medias/MatVD.webp )  no-repeat;
     background-size: cover;
-    /* background-position: 5% 25%; */
     box-shadow: var(--shadow-box1);
 }
 
