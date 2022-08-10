@@ -116,7 +116,9 @@ div#apropos > p {
 /* ----- reseaux sociaux ----- */
 #bandeau div.reseaux-sociaux {
     margin-top: 10px;
-    border: 1px solid red;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
     
 }
 
@@ -427,13 +429,10 @@ div#copyright {
   margin-top: 5px;
 }
 
-div.reseaux-sociaux {
-  display: flex;
-  justify-content: space-between;
-}
 
 div.reseaux-sociaux a {
   margin-right: 20px;
+  text-decoration: none;
 }
 
 /* ========= media querry ========== */
