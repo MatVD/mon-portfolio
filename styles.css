@@ -270,7 +270,7 @@ textarea {
 
 #container {
   background: #e2e2e2;
-  box-shadow: inset var(--shadow-box1);
+  box-shadow: var(--shadow-box1);
   background: linear-gradient(135deg, #21abe663, #f0e6614d,#f7dcdc52);
   border-radius: 5px;
   border: solid 2px var(--strong-color);
