@@ -420,6 +420,11 @@ textarea {
   color: #F2F3EB;
 }
 
+form span#error {
+  margin-left: 50px;
+  color: red;
+}
+
 
 /* =========== footer ========== */
 /* ============================= */

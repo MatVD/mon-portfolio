@@ -1,4 +1,4 @@
-// ----------- bandeau / canevas ------------
+// ----------- bandeau / canevas ------------ //
 
 const canvas = document.querySelector('#canvas1');
 const ctx = canvas.getContext('2d');
@@ -72,3 +72,29 @@ function animate() {
 }
 
 animate()
+
+
+// ----------- validation formulaire ------------ //
+
+const form = document.getElementById('contact_form');
+const firstName = document.getElementById('name_input');
+const email = document.getElementById('email_input');
+
+
+
+firstName.addEventListener('blur', (event) => {
+  if (event.target.value == "") {
+    error.innerText = 'Le nom est nécessaire'
+  } else {
+    error.innerText = ''
+  }
+})
+
+email.addEventListener('blur', (event) => {
+  let emailVerif = /^([0-9a-zA-Z].*?@([0-9a-zA-Z].*\.\w{2,4}))$/
+  if (!emailVerif.test(event.target.value)) {
+    error.innerText = 'Le format de l\'email est incorrect'
+  } else {
+    error.innerText = ''
+  }
+})
