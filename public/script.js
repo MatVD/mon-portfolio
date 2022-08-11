@@ -79,6 +79,10 @@ animate()
 const form = document.getElementById('contact_form');
 const firstName = document.getElementById('name_input');
 const email = document.getElementById('email_input');
+const numero = document.getElementById('telephone_input');
+const subject = document.getElementById('subject_input');
+const message = document.getElementById('message_input');
+
 
 
 
@@ -97,4 +101,36 @@ email.addEventListener('blur', (event) => {
   } else {
     error.innerText = ''
   }
+})
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  
+  let formData = {
+    firstName: firstName.value,
+    email: email.value,
+    numero: numero.value,
+    subject: subject.value,
+    message: message.value
+  
+  }
+
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST', '/');
+  xhr.setRequestHeader('content-type', 'application/json');
+  xhr.onload = () => {
+    console.log(xhr.responseText);
+    if(xhr.responseText == 'success') {
+      alert('Email envoyé');
+      firstName.value = '';
+      email.value = '';
+      numero.value = '';
+      subject.value = '';
+      message.value = '';
+    } else {
+      alert('Un problème est survenue')
+    }
+  }
+
+  xhr.send(JSON.stringify(formData));
 })
