@@ -20,14 +20,14 @@ app.post('/', (req, res) => {
     port: 465,
     secure: true,
     auth: {
-      user: 'mathieuvd64@gmail.com',
-      pass: 'TY678//gtr23FGyu'
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS
     }
   })
 
   const mailOption = {
     form: req.body.email,
-    to: 'mathieuvd64@gmail.com',
+    to: process.env.EMAIL_USER,
     subject: `Message from ${req.body.email} - numero ${req.body.numero}: ${req.body.subject}`,
     text: req.body.message
   }
