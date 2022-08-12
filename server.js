@@ -18,14 +18,14 @@ app.post('/', (req, res) => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
+      user: 'mathieuvd64@gmail.com',
+      pass: 'ykjpfsoauygfplot'
     }
   })
 
   const mailOption = {
     form: req.body.email,
-    to: process.env.EMAIL_USER,
+    to: 'mathieuvd64@gmail.com',
     subject: `Message from ${req.body.email} - numero ${req.body.numero}: ${req.body.subject}`,
     text: req.body.message
   }
