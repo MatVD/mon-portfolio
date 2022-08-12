@@ -78,7 +78,7 @@ nav > ul > li > a {
 /* ========================== */
 section#bandeau {
     height: 60vh;
-    background: var(--legradient), url(medias/MatVD.webp )  no-repeat;
+    background: var(--legradient), url(medias/MatVD.webp ) no-repeat;
     background-size: cover;
     box-shadow: var(--shadow-box1);
 }
@@ -402,10 +402,19 @@ div.reseaux-sociaux a {
 }
 #realisations-img img {
   width: 307px;
-  margin: auto;
-}
 }
 
+/* ======== compétences ======= */
+/* ============================ */
+#competences {
+  display: flex;
+  justify-content: space-around;
+}
+#competences progress {
+width: 90%;
+}
+
+}
 
 
 @media screen and (min-width: 920px) {
@@ -433,6 +442,11 @@ nav > ul > li > a {
 
 /* ========= bandeau ======== */
 /* ========================== */
+section#bandeau {
+  height: 75vh;
+  background-position: 30% 35%;
+}
+  
 /* ---------- canvas ---------- */
 #canvas1 {
   display: initial;
@@ -451,21 +465,7 @@ nav > ul > li > a {
     text-align: center;
     margin: 40px 20px;
 }
-#realisations img {
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: var(--shadow-box1);
-}
 
-/* ======== compétences ======= */
-/* ============================ */
-#competences {
-    display: flex;
-    justify-content: space-around;
-}
-#competences progress {
-  width: 90%;
-}
 
 /* ========== contact ========= */
 /* ============================ */
