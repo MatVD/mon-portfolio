@@ -22,8 +22,8 @@ app.post('/', (req, res) => {
     auth: {
       type: "OAuth2",
       user: process.env.EMAIL_USER,
-      clientId: "134019100908-r89iub4q9cam7sl530qn07aji0iml1uo.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
     },
   });
 
@@ -39,7 +39,7 @@ app.post('/', (req, res) => {
     ${req.body.email}`,
     auth: {
       user: process.env.EMAIL_USER,
-      accessToken: "ya29.A0AVA9y1vGTBIZfKO17UItmLl7puaNIxwDcrStHt5rv54nDE_3-DSgCCTIZxNMj2svIG7YfctyYTOoWaR4CT-8fmAa11rXGrfaA5ge6wsuqr-djum9w_xqoEro9Eim54qyQ4jpyHSo6-6N-RaavzGif0xzatkhaCgYKATASATASFQE65dr8ms0DXKLFo6LxI0RBFC2R4g0163",
+      accessToken: process.env.ACCESS_TOKEN,
     },
   }
 
