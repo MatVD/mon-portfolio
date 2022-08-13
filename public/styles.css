@@ -246,8 +246,7 @@ textarea {
   margin-top: 15px;
 }
 form {
-  padding: 35.5px;
-  margin: 50px 0;
+  padding: 20px;
 }
 .underline {
   border-bottom: solid 2px #474544;
@@ -255,7 +254,7 @@ form {
   width: 80px;
 }
 .icon_wrapper {
-  margin: 50px auto 0;
+  margin: 15px auto;
   width: 100%;
 }
 .icon {
@@ -344,12 +343,15 @@ textarea {
   border: solid 2px #474544;
   color: #474544;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   font-family: 'Helvetica', Arial, sans-serif;
   font-size: 0.875em;
   font-weight: bold;
   outline: none;
   padding: 20px 35px;
+  width: 90%;
+  max-width: 500px;
+  margin: 0 auto;
   text-transform: uppercase;
   -webkit-transition: all 0.3s;
 	-moz-transition: all 0.3s;
@@ -362,7 +364,7 @@ textarea {
   color: #F2F3EB;
 }
 form span#error {
-  margin-left: 50px;
+  margin-left: 5px;
   color: red;
 }
 
