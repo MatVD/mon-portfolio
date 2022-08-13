@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const nodemailer = require('nodemailer');
 require('dotenv').config();
+const xoauth2 = require('xoauth2'); 
 
 const PORT = process.env.PORT || 8000;
 
@@ -14,22 +15,32 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-
-  const transporter = nodemailer.createTransport({
-    service: 'gmail',
+  let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
     port: 465,
     secure: true,
     auth: {
+      type: "OAuth2",
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS
-    }
-  })
+      clientId: "134019100908-r89iub4q9cam7sl530qn07aji0iml1uo.apps.googleusercontent.com",
+      clientSecret: "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",
+    },
+  });
 
   const mailOption = {
     form: req.body.email,
     to: process.env.EMAIL_USER,
-    subject: `Message from ${req.body.email} - numero ${req.body.numero}: ${req.body.subject}`,
-    text: req.body.message
+    subject: `Message from ${req.body.email}: ${req.body.subject}`,
+    text: `
+    Message de ${req.body.firstName}
+    Objet: ${req.body.subject}
+    ${req.body.message}
+    ${req.body.numero}
+    ${req.body.email}`,
+    auth: {
+      user: process.env.EMAIL_USER,
+      accessToken: "ya29.A0AVA9y1vGTBIZfKO17UItmLl7puaNIxwDcrStHt5rv54nDE_3-DSgCCTIZxNMj2svIG7YfctyYTOoWaR4CT-8fmAa11rXGrfaA5ge6wsuqr-djum9w_xqoEro9Eim54qyQ4jpyHSo6-6N-RaavzGif0xzatkhaCgYKATASATASFQE65dr8ms0DXKLFo6LxI0RBFC2R4g0163",
+    },
   }
 
   transporter.sendMail(mailOption, (error, info) => {
