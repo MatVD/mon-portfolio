@@ -103,6 +103,8 @@ div#apropos > p {
 
 /* ----- reseaux sociaux ----- */
 #bandeau div.reseaux-sociaux {
+    position: relative;
+    z-index: 11;
     margin-top: 10px;
     display: inline-flex;
     flex-direction: column;
