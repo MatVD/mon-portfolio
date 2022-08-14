@@ -74,6 +74,7 @@ function animate() {
 animate()
 
 
+
 // ----------- validation formulaire ------------ //
 
 const form = document.getElementById('contact_form');
@@ -87,20 +88,31 @@ const message = document.getElementById('message_input');
 
 
 firstName.addEventListener('blur', (event) => {
+  let error = document.getElementById('error1');
+  error.innerText = ''
   if (event.target.value == "") {
+    error.style.color = 'red';
     error.innerText = 'Le nom est nécessaire'
-  } else {
-    error.innerText = ''
   }
 })
 
-email.addEventListener('blur', (event) => {
+email.addEventListener('input', (event) => {
   let emailVerif = /^([0-9a-zA-Z].*?@([0-9a-zA-Z].*\.\w{2,4}))$/
+  let error = document.getElementById('error2');
+  error.innerText = ''
   if (!emailVerif.test(event.target.value)) {
+    error.style.color = 'red';
     error.innerText = 'Le format de l\'email est incorrect'
-  } else {
-    error.innerText = ''
-  }
+  } 
+})
+
+numero.addEventListener('blur', (event) => {
+  let error = document.getElementById('error3');
+  error.innerText = ''
+  if (event.target.value == NaN || !event.target.value == "" ) {
+    error.style.color = 'red';
+    error.innerText = 'Veuillez entrez votre numero'
+  } 
 })
 
 form.addEventListener('submit', (event) => {

@@ -279,21 +279,23 @@
             <label for="name"></label>
             <input
               type="text"
-              placeholder="Mon nom"
+              placeholder="Mon nom *"
               name="name"
               id="name_input"
               required
             />
+            <span id="error1"></span>
           </div>
           <div class="email">
             <label for="email"></label>
             <input
               type="email"
-              placeholder="Mon e-mail"
+              placeholder="Mon e-mail *"
               name="email"
               id="email_input"
               required
             />
+            <span id="error2"></span>
           </div>
           <div class="telephone">
             <label for="telephone"></label>
@@ -302,16 +304,15 @@
               placeholder="Mon numéro"
               name="telephone"
               id="telephone_input"
-              required
             />
+            <span id="error3"></span>
           </div>
           <div class="subject">
             <label for="subject"></label>
             <select
-              placeholder="Sujet"
+              placeholder="Sujet *"
               name="subject"
               id="subject_input"
-              required
             >
               <option disabled hidden selected>Sujet</option>
               <option>Je souhaite commencer un projet</option>
@@ -324,7 +325,7 @@
             <label for="message"></label>
             <textarea
               name="message"
-              placeholder="Message ici..."
+              placeholder="Message ici... *"
               id="message_input"
               cols="30"
               rows="5"
@@ -333,7 +334,6 @@
           </div>
           <div class="submit">
             <input type="submit" value="Envoyer" id="form_button" />
-            <span id="error"></span>
           </div>
         </form>
         <!-- // End form -->

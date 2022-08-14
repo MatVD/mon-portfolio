@@ -246,7 +246,7 @@ textarea {
   margin-top: 15px;
 }
 form {
-  padding: 20px;
+  padding: 15px;
 }
 .underline {
   border-bottom: solid 2px #474544;
@@ -276,9 +276,8 @@ input[type='text'], [type='email'], select, textarea {
 	font-size: 1.000em;
   font-weight: 400;
   letter-spacing: 1px;
-	margin: 0em 0 1.875em 0;
+	margin: 1em 0 1em 0;
 	padding: 0 0 0.875em 0;
-  text-transform: uppercase;
 	width: 100%;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -348,7 +347,7 @@ textarea {
   font-size: 0.875em;
   font-weight: bold;
   outline: none;
-  padding: 20px 35px;
+  padding: 15px 30px;
   width: 90%;
   max-width: 500px;
   margin: 0 auto;
