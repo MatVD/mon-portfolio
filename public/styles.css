@@ -348,7 +348,6 @@ textarea {
   font-weight: bold;
   outline: none;
   padding: 15px 30px;
-  margin: 0 auto;
   text-transform: uppercase;
 	transition: all 0.3s;
 }
