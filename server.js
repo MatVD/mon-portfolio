@@ -15,7 +15,6 @@ app.get('/', (req, res) => {
 });
 
 app.post('/', (req, res) => {
-
   let transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -25,6 +24,8 @@ app.post('/', (req, res) => {
       user: process.env.EMAIL_USER,
       clientId: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
+      refreshToken: process.env.REFRESH_TOKEN,
+      accessToken: process.env.ACCESS_TOKEN,
     },
   });
 
@@ -38,10 +39,6 @@ app.post('/', (req, res) => {
     ${req.body.message}
     ${req.body.numero}
     ${req.body.email}`,
-    auth: {
-      user: process.env.EMAIL_USER,
-      accessToken: process.env.ACCESS_TOKEN,
-    },
   }
 
   transporter.sendMail(mailOption, (error, info) => {
@@ -58,3 +55,6 @@ app.post('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 });
+
+
+
