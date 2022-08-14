@@ -39,7 +39,7 @@ app.post('/', (req, res) => {
     ${req.body.email}`,
     auth: {
       user: process.env.EMAIL_USER,
-      refreshToken: process.env.REFRESH_TOKEN,
+      //refreshToken: process.env.REFRESH_TOKEN,
       accessToken: process.env.ACCESS_TOKEN,
     },
   }
