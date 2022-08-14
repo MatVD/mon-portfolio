@@ -348,8 +348,6 @@ textarea {
   font-weight: bold;
   outline: none;
   padding: 15px 30px;
-  width: 90%;
-  max-width: 500px;
   margin: 0 auto;
   text-transform: uppercase;
   -webkit-transition: all 0.3s;
