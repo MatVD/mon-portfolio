@@ -357,6 +357,7 @@ textarea {
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
+  resize: none;
 }
 #form_button:hover {
   background: #474544;
