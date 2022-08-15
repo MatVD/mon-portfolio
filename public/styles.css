@@ -212,15 +212,8 @@ progress[value]::-webkit-progress-bar {
 }
 
 
-
 /* =========== Forms ========== */
 /* ============================ */
-button {
-  overflow: visible;
-}
-button, select {
-  text-transform: none;
-}
 button, input, select, textarea {
   color: #5A5A5A;
   font: inherit;
@@ -238,8 +231,9 @@ textarea {
   background: linear-gradient(135deg, #21abe663, #f0e6614d,#f7dcdc52);
   border-radius: 5px;
   border: solid 2px var(--strong-color);
-  width: 90%;
+  width: 85%;
   margin: 20px auto;
+  margin-bottom: 120px;
   position: relative;
 }
 #container h2 {
@@ -352,7 +346,7 @@ textarea {
   font-weight: bold;
   outline: none;
   padding: 15px 30px;
-  margin: 20px auto;
+  margin: 20px;
   width: 90%;
   max-width: 400px;
   text-transform: uppercase;
@@ -372,22 +366,8 @@ textarea {
 /* =========== footer ========== */
 /* ============================= */
 footer {
-  padding: 30px 0 90px 0;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-around;
-  background: #EBEBEB;
-  box-shadow: var(--shadow-box1);
+  display: none;
 }
-div#copyright {
-  margin-left: 20px;
-  margin-top: 5px;
-}
-div.reseaux-sociaux a {
-  margin-right: 20px;
-  text-decoration: none;
-}
-
 
 
 /* ========= media querry ========== */
@@ -417,7 +397,6 @@ div.reseaux-sociaux a {
 #competences progress {
 width: 90%;
 }
-
 }
 
 
@@ -478,5 +457,26 @@ section#contact {
 }
 #container {
   max-width: 768px;
+  margin-bottom: 40px;
 }
+
+/* ========== footer ========= */
+/* ============================ */
+footer {
+  padding: 30px 0 30px 0;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  background: #EBEBEB;
+  box-shadow: var(--shadow-box1);
+}
+div#copyright {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+div.reseaux-sociaux a {
+  margin-right: 20px;
+  text-decoration: none;
+}
+
 }
