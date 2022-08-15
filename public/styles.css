@@ -336,13 +336,17 @@ textarea {
 :-ms-input-placeholder {
 	color: #474544;
 }
+#container-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 #form_button {
   background: none;
   border-radius: 5px;
   border: solid 2px #474544;
   color: #474544;
   cursor: pointer;
-  display: block;
   font-family: 'Helvetica', Arial, sans-serif;
   font-size: 0.875em;
   font-weight: bold;
@@ -357,7 +361,6 @@ textarea {
   -ms-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
-  resize: none;
 }
 #form_button:hover {
   background: #474544;

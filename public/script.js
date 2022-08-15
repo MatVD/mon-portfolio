@@ -85,8 +85,6 @@ const subject = document.getElementById('subject_input');
 const message = document.getElementById('message_input');
 
 
-
-
 firstName.addEventListener('blur', (event) => {
   let error = document.getElementById('error1');
   error.innerText = ''
@@ -115,7 +113,7 @@ numero.addEventListener('blur', (event) => {
   } 
 })
 
-form.addEventListener('click', (event) => {
+form.addEventListener('submit', (event) => {
   event.preventDefault();
   
   let formData = {
@@ -124,7 +122,6 @@ form.addEventListener('click', (event) => {
     numero: numero.value,
     subject: subject.value,
     message: message.value
-  
   }
 
   let xhr = new XMLHttpRequest();
