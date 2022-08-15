@@ -114,6 +114,7 @@ numero.addEventListener('blur', (event) => {
 })
 
 form.addEventListener('submit', (event) => {
+  event.preventDefault();
   
   let formData = {
     firstName: firstName.value,

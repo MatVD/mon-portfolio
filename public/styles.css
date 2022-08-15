@@ -39,18 +39,25 @@ h2 {
 
 /* ========== navbar ========== */
 /* ============================ */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 nav {
     position: fixed;
     z-index: 1000;
-    bottom: 0;
-    background-color:  #e1e1e1;
-    height: 75px;
-    width: 100%;
-    border-radius: 5px 5px 0 0;
+    bottom: 7px;
+    background-color: #d6d3d3;
+    height: 80px;
+    width: 95%;
+    border-radius: 5px;
+    margin: O auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 4px 15px #57575751;
+    box-shadow: inset 4px 4px 15px #57575751;
 }
 nav > ul {
     width: 100%;
@@ -68,7 +75,7 @@ nav > ul > li > a {
     text-decoration: none;
     align-items: center;
     color: black;
-    font-size: 0.85em;
+    font-size: 0.8em;
 }
 .logos {
   margin-bottom: 10px;
