@@ -246,7 +246,7 @@ textarea {
   margin-top: 15px;
 }
 form {
-  padding: 15px;
+  padding: 20px;
 }
 .underline {
   border-bottom: solid 2px #474544;
@@ -348,17 +348,21 @@ textarea {
   font-weight: bold;
   outline: none;
   padding: 15px 30px;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
   text-transform: uppercase;
+  -webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	-ms-transition: all 0.3s;
+	-o-transition: all 0.3s;
 	transition: all 0.3s;
 }
 #form_button:hover {
   background: #474544;
   color: #F2F3EB;
 }
-form span#error {
-  margin-left: 5px;
-  color: red;
-}
+
 
 
 /* =========== footer ========== */
