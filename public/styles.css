@@ -357,6 +357,9 @@ textarea {
   font-weight: bold;
   color: #5A5A5A
 }
+#form_button:active {
+  padding: 10px;
+}
 #form_button:hover {
   background: #474544;
   color: #F2F3EB;
