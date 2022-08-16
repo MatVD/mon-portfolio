@@ -12,26 +12,26 @@
     box-sizing: border-box;
 }
 html {
-  font-family: 'Montserrat', Arial, sans-serif;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  --main-color: #f7f5f5;
-  --h2-color: #474544;
-  --strong-color: #b8ae2b;
-  --shadow-box1: 0 4px 15px #00000051;
-  --legradient: linear-gradient(135deg, #21abe6df, #f0e7619d,#f7dcdcb7);
+    font-family: 'Montserrat', Arial, sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    --main-color: #f7f5f5;
+    --h2-color: #474544;
+    --strong-color: #b8ae2b;
+    --shadow-box1: 0 4px 15px #00000051;
+    --legradient: linear-gradient(135deg, #21abe6df, #f0e7619d,#f7dcdcb7);
 }
 body {
-  background: var(--main-color);
+    background: var(--main-color);
 }
 section {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
 h2 {
     color: var(--h2-color);
     font-size: 22px;
     font-weight: 700;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
     text-align: center;
     text-transform: uppercase;
 }
@@ -88,58 +88,72 @@ section#bandeau {
     background: var(--legradient), url(medias/MatVD.webp ) no-repeat;
     background-size: cover;
     box-shadow: var(--shadow-box1);
+    position: relative;
+    padding: 20px;
 }
-#bandeau h1 {
-    letter-spacing: 4px;
+#bandeau p:first-child {
     text-transform: uppercase;
-    font-size: 1.3em;
-    font-weight: 900;
-    color: #000000;
-    padding-top: 25px;
+    font-size: 1.4em;
+    letter-spacing: 3px;
+    color: rgb(0, 0, 0);
+    margin-top: 5px;
+    font-weight: 700;
 }
-div#apropos {
-    margin-bottom: 25px;
-    margin-left: 25px;
+h1 {
+    font-size: 1.1em;
     color: white;
-}
-div#apropos > p {
-  margin-top: 10px;
-  font-size: 1.1em;
-  letter-spacing: 2px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    line-height: 25px;
 }
 
 /* ----- reseaux sociaux ----- */
 #bandeau div.reseaux-sociaux {
     position: relative;
     z-index: 11;
-    margin-top: 10px;
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    margin-top: 20px;
 }
 #bandeau div.reseaux-sociaux svg {
-    margin: 10px 25px;
+    margin: 10px 0;
 }
 
 
 /* ---------- canvas ---------- */
 #canvas1 {
-  display: initial;
-  background-color: transparent;
-  position: absolute;
-  top: 0px;
-  right: 0;
+    display: initial;
+    background-color: transparent;
+    position: absolute;
+    top: 0px;
+    right: 0;
 }
+
+/* ======= presentation ======= */
+/* ============================ */
+
+#presentation-content {
+  margin-left: 20px;
+  width: 90%;
+}
+
+#presentation-content h2 {
+    display: initial;
+    letter-spacing: 1px;
+
+}
+#presentation-content p {
+  margin-top: 10px;
+  line-height: 25px;
+}
+
+
 
 
 /* ======== réalisation ======= */
 /* ============================ */
-#realisations > h2 {
-    display: inline;
-    position: relative;
-    left: 15px;
-}
 #realisations h2 strong {
     color: var(--strong-color);
 }
@@ -179,7 +193,7 @@ div#apropos > p {
     width: 300px;
 }
 #competences h2 strong{
-  color: var(--strong-color);
+    color: var(--strong-color);
 }
 #competences ul {
     list-style-type: none;
