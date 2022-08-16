@@ -114,7 +114,6 @@ numero.addEventListener('blur', (event) => {
 })
 
 form.addEventListener('submit', (event) => {
-  event.preventDefault();
   
   let formData = {
     firstName: firstName.value,
@@ -123,11 +122,11 @@ form.addEventListener('submit', (event) => {
     subject: subject.value,
     message: message.value
   }
-
+  
   let xhr = new XMLHttpRequest();
   xhr.open('POST', '/');
   xhr.setRequestHeader('content-type', 'application/json');
-  xhr.onload = () => {
+  xhr.addEventListener('load',() => {
     console.log(xhr.responseText);
     if(xhr.responseText == 'success') {
       alert('Email envoyé');
@@ -139,9 +138,11 @@ form.addEventListener('submit', (event) => {
     } else {
       alert('Un problème est survenue')
     }
-  }
-
+  });
+  
   xhr.send(JSON.stringify(formData));
+
+  event.preventDefault();
 })
 
 

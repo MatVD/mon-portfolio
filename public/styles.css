@@ -48,7 +48,7 @@ header {
 nav {
     position: fixed;
     z-index: 1000;
-    bottom: 7px;
+    bottom: 15px;
     background-color: #d6d3d3;
     height: 80px;
     width: 95%;
@@ -240,7 +240,7 @@ textarea {
   border: solid 2px var(--strong-color);
   width: 85%;
   margin: 20px auto;
-  margin-bottom: 120px;
+  margin-bottom: 130px;
   position: relative;
 }
 #container h2 {
@@ -343,31 +343,19 @@ textarea {
   justify-content: center;
 }
 #form_button {
-  background: none;
+  background: transparent;
+  padding: 10px;
+  border: 1px solid #474544;
   border-radius: 5px;
-  border: solid 2px #474544;
-  color: #474544;
-  cursor: pointer;
-  font-family: 'Helvetica', Arial, sans-serif;
-  font-size: 0.875em;
+  margin: 15px;
+  width: 300px;
   font-weight: bold;
-  outline: none;
-  padding: 15px 30px;
-  margin: 20px;
-  width: 90%;
-  max-width: 400px;
-  text-transform: uppercase;
-  -webkit-transition: all 0.3s;
-  -moz-transition: all 0.3s;
-  -ms-transition: all 0.3s;
-  -o-transition: all 0.3s;
-  transition: all 0.3s;
+  color: #5A5A5A
 }
 #form_button:hover {
   background: #474544;
   color: #F2F3EB;
 }
-
 
 
 /* =========== footer ========== */
