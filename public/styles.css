@@ -221,6 +221,13 @@ progress[value]::-webkit-progress-bar {
 
 /* =========== Forms ========== */
 /* ============================ */
+section#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 180px;
+}
 button, input, select, textarea {
   color: #5A5A5A;
   font: inherit;
@@ -239,8 +246,6 @@ textarea {
   border-radius: 5px;
   border: solid 2px var(--strong-color);
   width: 85%;
-  margin: 20px auto;
-  margin-bottom: 130px;
   position: relative;
 }
 #container h2 {
@@ -355,6 +360,11 @@ textarea {
 #form_button:hover {
   background: #474544;
   color: #F2F3EB;
+}
+#p-info{
+  position: relative;
+  top: 20px;
+
 }
 
 

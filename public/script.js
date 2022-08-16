@@ -114,6 +114,7 @@ numero.addEventListener('blur', (event) => {
 })
 
 form.addEventListener('submit', (event) => {
+  event.preventDefault();
   
   let formData = {
     firstName: firstName.value,
@@ -128,21 +129,26 @@ form.addEventListener('submit', (event) => {
   xhr.setRequestHeader('content-type', 'application/json');
   xhr.addEventListener('load',() => {
     console.log(xhr.responseText);
+    let info = document.getElementById('p-info');
+    info.focus();
     if(xhr.responseText == 'success') {
-      alert('Email envoyé');
+      info.style.color = 'green';
+      info.style.fontStyle = "italic";
+      info.textContent = 'Email envoyé';
       firstName.value = '';
       email.value = '';
       numero.value = '';
       subject.value = '';
       message.value = '';
     } else {
-      alert('Un problème est survenue')
+      info.style.color = 'red';
+      info.style.fontStyle = "italic";
+      info.textContent = 'Un problème est survenue. Veuillez réessayer'
     }
   });
   
   xhr.send(JSON.stringify(formData));
 
-  event.preventDefault();
 })
 
 
