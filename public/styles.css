@@ -162,24 +162,40 @@ h1 {
     flex-direction: column;
 }
 #realisations-img > a {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 80%;
     margin: 30px auto;
     text-decoration: none;
+    color: var(--h2-color);
+}
+.container-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  border: solid 1px #63626277;
+  border-radius: 6px;
+  box-shadow: var(--shadow-box1);
 }
 #realisations img {
     width: 100%;
+    max-width: 600px;
     margin: auto;
-    border-radius: 6px;
-    box-shadow: var(--shadow-box1);
+    border-radius: 6px 6px 0 0;
+}
+#realisations h3{
+  margin: 20px auto;
+}
+#realisations p{
+  text-align: center;
+  margin: 0 2px 10px 2px
 }
 #projet-en-cours {
   filter: blur(4px);
   opacity: 0.5;
-}
-#a-en-cours {
-  position: relative;
-  margin: 30px auto;
 }
 #banniere {
   /*Projet en cours */
@@ -188,7 +204,7 @@ h1 {
   letter-spacing: 4px;
   font-weight: 800;
   text-transform: uppercase;
-  font-size: 1.2em;
+  font-size: 1.3em;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -196,6 +212,12 @@ h1 {
   justify-content: center;
   align-items: center;
   /* transform: rotate(-45deg); */
+}
+#img-de-moi {
+  background: var(--legradient), url(medias/MatVD.webp ) no-repeat;
+  background-size: cover;
+  width: 100px;
+  height: 100%;
 }
 
 /* ======== compétences ======= */
@@ -432,6 +454,9 @@ footer {
 }
 #realisations-img img {
   width: 307px;
+}
+.container-card {
+  width: min-content;
 }
 
 
