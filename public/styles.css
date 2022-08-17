@@ -173,25 +173,29 @@ h1 {
     border-radius: 6px;
     box-shadow: var(--shadow-box1);
 }
-#a-en-cours {
-  position: relative;
-  margin: 30px auto;
-}
 #projet-en-cours {
   filter: blur(4px);
   opacity: 0.5;
 }
+#a-en-cours {
+  position: relative;
+  margin: 30px auto;
+}
 #banniere {
   /*Projet en cours */
+  display: flex;
   color: var(--h2-color);
-  letter-spacing: 8px;
+  letter-spacing: 4px;
   font-weight: 800;
   text-transform: uppercase;
-  font-size: 2.4rem;
+  font-size: 1.2em;
   position: absolute;
-  left: 25%;
-  bottom: 50%;
-  transform: rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  /* transform: rotate(-45deg); */
 }
 
 /* ======== compétences ======= */
@@ -428,11 +432,6 @@ footer {
 }
 #realisations-img img {
   width: 307px;
-}
-#banniere { 
-  /*Projet en cours */
-  font-size: 1.7rem;
-  left: 20%;
 }
 
 
