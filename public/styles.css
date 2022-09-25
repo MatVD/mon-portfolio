@@ -19,8 +19,8 @@ html {
     --main-color: #f7f7f7;
     --h2-color: #474544;
     --strong-color: #b8ae2b;
-    --shadow-box1: 0 4px 15px #00000051;
-    --legradient: linear-gradient(135deg, #21abe6df, #f0e7619d,#f7dcdcb7);
+    /* --shadow-box1: 0 4px 15px #00000051; */
+    --legradient: linear-gradient(170deg, #0876a5, #97e8f39e,#ffffffbb);
 }
 body {
     background: var(--main-color);
