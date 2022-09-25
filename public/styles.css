@@ -13,9 +13,10 @@
 }
 html {
     font-family: 'Montserrat', Arial, sans-serif;
+    --color-general-font: rgb(6, 6, 6);
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
-    --main-color: #f7f5f5;
+    --main-color: #f7f7f7;
     --h2-color: #474544;
     --strong-color: #b8ae2b;
     --shadow-box1: 0 4px 15px #00000051;
@@ -28,14 +29,13 @@ section {
     margin-bottom: 60px;
 }
 h2 {
-    color: var(--h2-color);
+    color: var(--color-general-font);
     font-size: 22px;
     font-weight: 700;
     letter-spacing: 3px;
     text-align: center;
     text-transform: uppercase;
 }
-  
 
 /* ========== navbar ========== */
 /* ============================ */
@@ -74,7 +74,7 @@ nav > ul > li > a {
     justify-content: space-between;
     text-decoration: none;
     align-items: center;
-    color: black;
+    color: var(--color-general-font);
     font-size: 0.8em;
 }
 .logos {
@@ -300,11 +300,9 @@ textarea {
   overflow: auto;
 }
 #container {
-  background: #e2e2e2;
+  background: #ebebeb;
   box-shadow: var(--shadow-box1);
-  background: linear-gradient(135deg, #21abe663, #f0e6614d,#f7dcdc52);
   border-radius: 5px;
-  border: solid 2px var(--strong-color);
   width: 85%;
   position: relative;
 }
