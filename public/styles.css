@@ -20,7 +20,7 @@ html {
     --h2-color: #474544;
     --strong-color: #b8ae2b;
     /* --shadow-box1: 0 4px 15px #00000051; */
-    --legradient: linear-gradient(170deg, #0876a5, #97e8f39e,#ffffffbb);
+    --legradient: linear-gradient(170deg, #0876a5da, #97e8f39e,#ffffffbb);
 }
 body {
     background: var(--main-color);
@@ -435,6 +435,10 @@ footer {
   display: none;
 }
 
+a {
+  color: black;
+}
+
 
 /* ========= media querry ========== */
 /* ================================= */
@@ -547,5 +551,24 @@ div.reseaux-sociaux a {
   margin-right: 20px;
   text-decoration: none;
 }
-
 }
+
+/* ========== Politique conf. ========= */
+/* ==================================== */
+
+main#conf {
+  padding: 50px;
+}
+
+h1#confidentialite {
+  font-size: 30px;
+  font-weight: initial;
+  color: black;
+  margin: 20px 0 60px 0;
+  text-align: center;
+}
+
+h2.conf {
+  margin: 60px 0 20px 0;
+}
+
