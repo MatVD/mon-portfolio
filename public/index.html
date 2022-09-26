@@ -358,12 +358,12 @@
             ></path>
           </svg>
         </div>
-        <form id="contact_form">
+        <form name="contact" id="contact_form" data-netlify="true">
           <div class="name">
             <label for="name"></label>
             <input
               type="text"
-              placeholder="Mon nom *"
+              placeholder="Nom"
               name="name"
               id="name_input"
               required
@@ -374,7 +374,7 @@
             <label for="email"></label>
             <input
               type="email"
-              placeholder="Mon e-mail *"
+              placeholder="E-mail *"
               name="email"
               id="email_input"
               required
@@ -385,7 +385,7 @@
             <label for="telephone"></label>
             <input
               type="text"
-              placeholder="Mon numéro"
+              placeholder="Numéro téléphone (optionnel)"
               name="telephone"
               id="telephone_input"
             />
@@ -393,7 +393,7 @@
           </div>
           <div class="subject">
             <label for="subject"></label>
-            <select placeholder="Sujet *" name="subject" id="subject_input">
+            <select placeholder="Objet *" name="subject" id="subject_input">
               <option disabled hidden selected>Objet</option>
               <option>Je souhaite commencer un projet</option>
               <option>J'ai des questions</option>
