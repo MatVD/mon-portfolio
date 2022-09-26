@@ -19,7 +19,6 @@ html {
     --main-color: #f7f7f7;
     --h2-color: #474544;
     --strong-color: #b8ae2b;
-    /* --shadow-box1: 0 4px 15px #00000051; */
     --legradient: linear-gradient(170deg, #0876a5da, #97e8f39e,#ffffffbb);
 }
 body {
@@ -35,6 +34,9 @@ h2 {
     letter-spacing: 3px;
     text-align: center;
     text-transform: uppercase;
+}
+strong {
+  color: #0876a5da;
 }
 
 /* ========== navbar ========== */
@@ -153,7 +155,7 @@ h1 {
 /* ======== réalisation ======= */
 /* ============================ */
 #realisations h2 strong {
-    color: var(--strong-color);
+    color: #0876a5da;
 }
 #realisations-img {
     display: flex;
@@ -174,9 +176,8 @@ h1 {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  border: solid 1px #63626277;
+  border: solid 1px #0876a5da;
   border-radius: 6px;
-  box-shadow: var(--shadow-box1);
 }
 #realisations img {
     width: 100%;
@@ -238,9 +239,6 @@ h1 {
     padding: 7px;
     width: 300px;
 }
-#competences h2 strong{
-    color: var(--strong-color);
-}
 #competences ul {
     list-style-type: none;
 }
@@ -274,7 +272,7 @@ progress[value]::-webkit-progress-bar {
   }
 #competences progress[value]::-webkit-progress-value {
     background-image:
-     -webkit-linear-gradient(left, #ded778, #b8af2bdb);
+     -webkit-linear-gradient(left, #e0da80, #44b0deda);
     border-radius: 5px;
 }
 
