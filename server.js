@@ -1,10 +1,26 @@
 const express = require('express');
 const app = express();
 const nodemailer = require('nodemailer');
+const {google} = require('googleapis');
 require('dotenv').config();
-// const xoauth2 = require('xoauth2'); 
+const OAauth2 = google.auth.OAuth2;
 
-// console.log(xoauth2)
+const OAauth2Client = new OAauth2(
+  process.env.GOOGLE_GMAIL_CLIENT_ID,
+  process.env.GOOGLE_GMAIL_CLIENT_SECRET,
+  process.env.GOOGLE_GMAIL_REDIRECT_URI,
+);
+
+OAauth2Client.setCredentials({
+  refresh_token: process.env.GOOGLE_GMAIL_REFRESH_TOKEN,
+})
+
+const accessToken = new Promise((resolve, reject) => {
+  OAauth2Client.getAccessToken((err, token) => {
+    if (err) reject(err)
+    resolve(token)
+  })
+}) 
 
 const PORT = process.env.PORT || 8000;
 
@@ -28,12 +44,17 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   let transporter = nodemailer.createTransport({
+    service: 'gmail',
     host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
+    port: 587,
+    secure: false,
     auth: {
+      type: 'oauth2',
       user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      clientId: process.env.GOOGLE_GMAIL_CLIENT_ID,
+      accessToken,
+      clientSecret: process.env.GOOGLE_GMAIL_CLIENT_SECRET,
+      refreshToken: process.env.GOOGLE_GMAIL_REFRESH_TOKEN 
     },
   });
 
@@ -46,11 +67,7 @@ app.post('/', (req, res) => {
     Objet: ${req.body.subject}
     ${req.body.message}
     ${req.body.numero}
-    ${req.body.email}`,
-    auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
-    },
+    ${req.body.email}`
   }
 
   transporter.sendMail(mailOption, (error, info) => {
