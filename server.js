@@ -47,6 +47,10 @@ app.post('/', (req, res) => {
     ${req.body.message}
     ${req.body.numero}
     ${req.body.email}`,
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
   }
 
   transporter.sendMail(mailOption, (error, info) => {
