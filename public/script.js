@@ -115,7 +115,8 @@ email.addEventListener('input', (event) => {
 numero.addEventListener('blur', (event) => {
   let error = document.getElementById('error3');
   error.innerText = ''
-  if (event.target.value == NaN || !event.target.value == "" ) {
+  let numValide = /^0[1-9]\d{8}$/;
+  if (!numValide.test(event.target.value) || event.target.value == "") {
     error.style.color = 'red';
     error.innerText = 'Veuillez entrez votre numero'
   } 
