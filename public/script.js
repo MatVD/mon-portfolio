@@ -116,7 +116,7 @@ numero.addEventListener('blur', (event) => {
   let error = document.getElementById('error3');
   error.innerText = ''
   let numValide = /^0[1-9]\d{8}$/;
-  if (!numValide.test(event.target.value) || event.target.value == "") {
+  if (!numValide.test(event.target.value) || event.target.value != "") {
     error.style.color = 'red';
     error.innerText = 'Veuillez entrez votre numero'
   } 
