@@ -61,6 +61,14 @@ app.post('/', (req, res) => {
   const mailOption = {
     form: req.body.email,
     to: process.env.EMAIL_USER,
+    auth: {
+      type: 'oauth2',
+      user: process.env.EMAIL_USER,
+      clientId: process.env.GOOGLE_GMAIL_CLIENT_ID,
+      accessToken,
+      clientSecret: process.env.GOOGLE_GMAIL_CLIENT_SECRET,
+      refreshToken: process.env.GOOGLE_GMAIL_REFRESH_TOKEN 
+    },
     subject: `Message from ${req.body.email}: ${req.body.subject}`,
     text: `
     Message de ${req.body.firstName}
