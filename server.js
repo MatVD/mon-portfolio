@@ -17,9 +17,7 @@ OAauth2Client.setCredentials({
 
 const accessToken = new Promise((resolve, reject) => {
   OAauth2Client.getAccessToken((err, token) => {
-    if (err) {
-      reject(err)
-    }
+    if (err) reject(err)
     resolve(token)
   })
 }) 
