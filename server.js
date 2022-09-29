@@ -1,8 +1,12 @@
 const express = require('express');
 const app = express();
-// const nodemailer = require('nodemailer');
-// const {google} = require('googleapis');
 require('dotenv').config();
+
+// Init emailjs: form to email //
+const emailjs = require('@emailjs/browser');
+(function () {
+  emailjs.init("e3qWue0PA6EGrmfWx");
+})();
 
 const PORT = process.env.PORT || 8000;
 

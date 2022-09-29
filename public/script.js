@@ -1,4 +1,5 @@
 
+
 // ----------- bandeau / canvas ------------ //
 // animation de neige par dessus le bandeau //
 const canvas = document.querySelector('#canvas1');
@@ -128,7 +129,7 @@ window.onload = function() {
     event.preventDefault();
 
     // these IDs from the previous steps
-    emailjs.sendForm('contact_service', 'contact_form',  this)
+    emailjs.sendForm('contact_service', 'contact_form',  this, "e3qWue0PA6EGrmfWx")
       .then(function(response) {
           console.log('SUCCESS!', response.status, response.text);
           info.style.color = '#0876a5da';
