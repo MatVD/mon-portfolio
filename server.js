@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 // const nodemailer = require('nodemailer');
 // const {google} = require('googleapis');
-// require('dotenv').config();
+require('dotenv').config();
 // const OAauth2 = google.auth.OAuth2;
 
 // const OAauth2Client = new OAauth2(
