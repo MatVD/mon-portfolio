@@ -167,9 +167,12 @@
           <img width="40px" src="./medias/Fiverr.png" alt="Fiverr">
         </a> -->
         <!-- --- Malt --- -->
-        <a href="https://www.malt.fr/profile/mathieuvandamme?overview=true" target="_blank">
-        <img width="40px" src="./medias/malt.png" alt="malt">
-      </a>
+        <a
+          href="https://www.malt.fr/profile/mathieuvandamme?overview=true"
+          target="_blank"
+        >
+          <img width="40px" src="./medias/malt.png" alt="malt" />
+        </a>
       </div>
     </section>
     <div>
@@ -181,11 +184,11 @@
       <div id="presentation-content">
         <h2>Qui se cache derrière ce nom à l'allure "sport de combat" ?</h2>
         <p>
-          Un <strong>développeur</strong> de 36 ans sans trop de
-          cheveux. Marié à une talentueuse et jolie artiste peintre. Sans
-          enfants et sans animaux qui viendront machouiller
-          <strong>le projet web</strong> que vous lui confierez. Allez! J'arrête
-          de parler à la troisième personne.<br />
+          Un <strong>développeur</strong> de 36 ans sans trop de cheveux. Marié
+          à une talentueuse et jolie artiste peintre. Sans enfants et sans
+          animaux qui viendront machouiller <strong>le projet web</strong> que
+          vous lui confierez. Allez! J'arrête de parler à la troisième
+          personne.<br />
           Pourquoi me confier votre projet ? Etant donné que l'on fait confiance
           sur des actes plus que sur des mots,
           <strong>jugez mes réalisations</strong> et
@@ -249,12 +252,17 @@
         </a>
         <a href="https://de-en-ligne.netlify.app/" target="_blank">
           <div class="container-card">
-            <img
-              src="medias/jeuDede.webp"
-              alt="Jeu de dé en ligne "
-            />
+            <img src="medias/jeuDede.webp" alt="Jeu de dé en ligne " />
             <h3>Node.js, Jasmine, Tailwind Css</h3>
-            <p>Au cour de ma formation, j'ai eu à faire ce site afin de m'améliorer dans l'agorithmie et les tests unitaires. Il y a bien entendu du <strong>HTML</strong> , <strong>JS (Vanilla)</strong>  et comme framework,<strong>Tailwind CSS</strong> . </p>
+            <p>
+              Au cour de ma formation, j'ai eu à faire ce site afin de
+              m'améliorer dans l'agorithmie et les tests unitaires. Il y a bien
+              entendu du <strong>HTML</strong> ,
+              <strong>JS (Vanilla)</strong> et comme framework,<strong
+                >Tailwind CSS</strong
+              >
+              .
+            </p>
           </div>
         </a>
         <a href="#" target="_blank">
@@ -344,7 +352,7 @@
 
     <!-- ============== contact =============== -->
     <section id="contact">
-      <p style="color: red;">Formulaire en cours de maintenance. Pour me contacter : <a href="mailto: mathieuvd64@gmail.com">mathieuvd64@gmail.com</a> </p><br>
+      <br />
       <div id="container">
         <h2>&bull; CONTACT &bull;</h2>
         <br />
@@ -359,7 +367,7 @@
             ></path>
           </svg>
         </div>
-        <form name="contact" id="contact_form">
+        <form name="contact" id="contact-form" method="post">
           <div class="name">
             <label for="name"></label>
             <input
@@ -512,8 +520,18 @@
         </a>
       </div>
       <div id="copyright">© MatVD 2022</div>
-      <a href="./confidentialite.html">Politique de confidentialité</a> 
+      <a href="./confidentialite.html">Politique de confidentialité</a>
     </footer>
-    <script src="script.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+    ></script>
+    <script>
+      (() => {
+        // https://dashboard.emailjs.com/admin/account
+        emailjs.init("e8c9Av_EaJsTzpwuO");
+      })();
+    </script>
+    <script src="script.js"></script>
   </body>
 </html>

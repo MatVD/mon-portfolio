@@ -15,17 +15,6 @@ window.addEventListener('resize', (event) => {
     canvas.height = sectionBandeau.clientHeight;
 })
 
-// // coordonnées x et y de la souris afin d'initier le processus
-// const mouse = {
-//   x: null,
-//   y: null
-// }
-// // Un listener sut le click et ses coordonnées
-// canvas.addEventListener('click', (event) => {
-//   mouse.x = event.x;
-//   mouse.y = event.y;
-// })
-
 // Class particule 
 class Particule {
   constructor(){
@@ -83,7 +72,6 @@ animate()
 // ----------- validation formulaire ------------ //
 // ---------------------------------------------- //
 
-const form = document.getElementById('contact_form');
 const firstName = document.getElementById('name_input');
 const email = document.getElementById('email_input');
 const numero = document.getElementById('telephone_input');
@@ -102,7 +90,7 @@ firstName.addEventListener('blur', (event) => {
 
 // Email obligtoire et vérif sur la forme
 email.addEventListener('input', (event) => {
-  let emailVerif = /^([0-9a-zA-Z].*?@([0-9a-zA-Z].*\.\w{2,4}))$/
+  let emailVerif = /^([0-9a-zA-Z].*?@([0-9a-zA-Z].*\.\w{2,4}))$/;
   let error = document.getElementById('error2');
   error.innerText = ''
   if (!emailVerif.test(event.target.value)) {
@@ -112,56 +100,47 @@ email.addEventListener('input', (event) => {
 })
 
 // Ecoute sur input téléphone - que des numéros attendu ou vide
-numero.addEventListener('blur', (event) => {
+numero.addEventListener('input', (event) => {
+  let numValide = /^0[1-9]\d{8}$/;
   let error = document.getElementById('error3');
   error.innerText = ''
-  let numValide = /^0[1-9]\d{8}$/;
-  if (numValide.test(event.target.value) || event.target.value != "") {
+  if (numValide.test(event.target.value) || event.target.value == "") {
+    error.innerText = ''
+  } else {
     error.style.color = 'red';
-    error.innerText = 'Veuillez entrez votre numero'
-  } 
-})
-
-// Ecoute sur le submit final - 
-// Récupération infos et transmission
-form.addEventListener('submit', (event) => {
-  event.preventDefault(); // stop la fonction submit courante
-  
-  // récupération des données sous forme d'objets
-  let formData = {
-    firstName: firstName.value,
-    email: email.value,
-    numero: numero.value,
-    subject: subject.value,
-    message: message.value
+    error.innerText = 'Numero non valide'
   }
-
-  // Déclaration requette HTTP pour envoyer les datas par mail
-  let xhr = new XMLHttpRequest();
-  xhr.open('POST', '/');
-  xhr.setRequestHeader('content-type', 'application/json');
-  xhr.addEventListener('load',() => {
-    console.log(xhr.responseText);
-    let info = document.getElementById('p-info');
-    info.focus();
-    if(xhr.responseText == 'success') {
-      info.style.color = 'green';
-      info.style.fontStyle = "italic";
-      info.textContent = 'Message envoyé';
-      firstName.value = '';
-      email.value = '';
-      numero.value = '';
-      subject.value = '';
-      message.value = '';
-    } else {
-      info.style.color = 'red';
-      info.style.fontStyle = "italic";
-      info.textContent = 'Un problème est survenue. Veuillez réessayer'
-    }
-  });
-  
-  xhr.send(JSON.stringify(formData));
-
 })
 
+
+//========== Gestion du contactForm ============//
+// Utilisation d'EMAILJS.COM
+
+window.onload = function() {
+  let form = document.getElementById('contact-form');
+  console.log(form.elements)
+  form.addEventListener('submit', function(event) {
+    let info = document.getElementById('p-info');
+    info.style.fontStyle = "italic";
+    event.preventDefault();
+    // these IDs from the previous steps
+    emailjs.sendForm('contact_service', 'contact_form',  this)
+      .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          info.style.color = '#0876a5da';
+          info.innerText = "Merci de m'avoir contacté. Je vous répond dans les plus bref délais"
+          setTimeout(() => {
+            info.innerText = ""
+          }, 15000);
+      }, function(error) {
+          console.log('FAILED...', error);
+          info.style.color = 'red';
+          info.innerText = "Oupss !!! Un petit problème durant l'envoie. Veuillez recommencer svp !!"
+      })
+      .then(function() {
+        event.target.reset();
+        error.innerText = '';
+      });
+  });
+}
 
