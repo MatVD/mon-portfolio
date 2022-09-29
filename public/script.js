@@ -1,3 +1,4 @@
+
 // ----------- bandeau / canvas ------------ //
 // animation de neige par dessus le bandeau //
 const canvas = document.querySelector('#canvas1');
@@ -113,16 +114,19 @@ numero.addEventListener('input', (event) => {
 })
 
 
+
+
 //========== Gestion du contactForm ============//
 // Utilisation d'EMAILJS.COM
 
 window.onload = function() {
   let form = document.getElementById('contact-form');
-  console.log(form.elements)
+  
   form.addEventListener('submit', function(event) {
     let info = document.getElementById('p-info');
     info.style.fontStyle = "italic";
     event.preventDefault();
+
     // these IDs from the previous steps
     emailjs.sendForm('contact_service', 'contact_form',  this)
       .then(function(response) {
@@ -143,4 +147,3 @@ window.onload = function() {
       });
   });
 }
-

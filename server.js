@@ -3,24 +3,6 @@ const app = express();
 // const nodemailer = require('nodemailer');
 // const {google} = require('googleapis');
 require('dotenv').config();
-// const OAauth2 = google.auth.OAuth2;
-
-// const OAauth2Client = new OAauth2(
-//   process.env.GOOGLE_GMAIL_CLIENT_ID,
-//   process.env.GOOGLE_GMAIL_CLIENT_SECRET,
-//   process.env.GOOGLE_GMAIL_REDIRECT_URI,
-// );
-
-// OAauth2Client.setCredentials({
-//   refresh_token: process.env.GOOGLE_GMAIL_REFRESH_TOKEN,
-// })
-
-// const accessToken = new Promise((resolve, reject) => {
-//   OAauth2Client.getAccessToken((err, token) => {
-//     if (err) reject(err)
-//     resolve(token)
-//   })
-// }) 
 
 const PORT = process.env.PORT || 8000;
 
@@ -46,4 +28,6 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 });
+
+
 
