@@ -527,8 +527,8 @@
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
     <script>
-      require('dotenv').config();
       (() => {
+        require('dotenv').config();
         // https://dashboard.emailjs.com/admin/account
         emailjs.init(process.env.EMAIL_JS_PUBLIC_KEY);
       })();
