@@ -9,8 +9,7 @@
       content="Votre projet web front-end entre de bonnes mains. Fraichement formé et à jour sur les technologies web. SEO, mobile first et accesibilité"
     />
     <title>MatVD - Portfolio</title>
-    <link rel="stylesheet" href="styles.min.css" />
-    
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <!-- ==============  navbar =============== -->
@@ -30,7 +29,7 @@
                   d="M331.8 224.1c28.29 0 54.88 10.99 74.86 30.97l19.59 19.59c40.01-17.74 71.25-53.3 81.62-96.65c5.725-23.92 5.34-47.08 .2148-68.4c-2.613-10.88-16.43-14.51-24.34-6.604l-68.9 68.9h-75.6V97.2l68.9-68.9c7.912-7.912 4.275-21.73-6.604-24.34c-21.32-5.125-44.48-5.51-68.4 .2148c-55.3 13.23-98.39 60.22-107.2 116.4C224.5 128.9 224.2 137 224.3 145l82.78 82.86C315.2 225.1 323.5 224.1 331.8 224.1zM384 278.6c-23.16-23.16-57.57-27.57-85.39-13.9L191.1 158L191.1 95.99l-127.1-95.99L0 63.1l96 127.1l62.04 .0077l106.7 106.6c-13.67 27.82-9.251 62.23 13.91 85.39l117 117.1c14.62 14.5 38.21 14.5 52.71-.0016l52.75-52.75c14.5-14.5 14.5-38.08-.0016-52.71L384 278.6zM227.9 307L168.7 247.9l-148.9 148.9c-26.37 26.37-26.37 69.08 0 95.45C32.96 505.4 50.21 512 67.5 512s34.54-6.592 47.72-19.78l119.1-119.1C225.5 352.3 222.6 329.4 227.9 307zM64 472c-13.25 0-24-10.75-24-24c0-13.26 10.75-24 24-24S88 434.7 88 448C88 461.3 77.25 472 64 472z"
                 />
               </svg>
-              Réalisations</a
+              Projets</a
             >
           </li>
           <li>
@@ -73,7 +72,7 @@
     <section id="bandeau">
       <div id="apropos">
         <p>Mathieu VAN DAMME</p>
-        <h1>Développeur web front-end junior</h1>
+        <h1>Développeur front-end junior</h1>
       </div>
       <div class="reseaux-sociaux">
         <!-- --- linkedin --- -->
@@ -183,24 +182,35 @@
     <!-- ============ présentation ============ -->
     <section id="presentation">
       <div id="presentation-content">
-        <h2>Qui se cache derrière ce nom à l'allure "sport de combat" ?</h2>
-        <p>
-          Un <strong>développeur</strong> de 36 ans sans trop de cheveux. Marié
-          à une talentueuse et jolie artiste peintre. Sans enfants et sans
-          animaux qui viendront machouiller <strong>le projet web</strong> que
-          vous lui confierez. Allez! J'arrête de parler à la troisième
-          personne.<br />
-          Pourquoi me confier votre projet ? Etant donné que l'on fait confiance
-          sur des actes plus que sur des mots,
-          <strong>jugez mes réalisations</strong> et
-          <strong>mes compétences</strong>!
-        </p>
+        <div id="texte-intro">
+          <h2>Qui se cache derrière ce nom à l'allure "sport de combat" ?</h2>
+          <p>
+            Un <strong>développeur</strong> de 36 ans sans trop de cheveux.
+            Marié à une talentueuse et jolie artiste peintre. Sans enfants et
+            sans animaux qui viendront machouiller
+            <strong>le projet web</strong> que vous lui confierez. Allez!
+            J'arrête de parler à la troisième personne.<br />
+            Pourquoi me confier votre projet ? Etant donné que l'on fait
+            confiance sur des actes plus que sur des mots,
+            <strong>jugez mes réalisations</strong> et
+            <strong>mes compétences</strong>!
+          </p>
+        </div>
+        <hr />
+        <div id="contact-intro">
+          <h2>Contact</h2>
+          <form id="contact-form">
+            <input type="text" placeholder="Votre nom">
+            <input type="email" placeholder="Votre email">
+            <textarea name="message" id="message" cols="20" rows="5" placeholder="Votre message"></textarea>
+          </form>
+        </div>
       </div>
     </section>
 
     <!-- ============ réalisations ============ -->
     <section id="realisations">
-      <h2><strong>réalisations</strong></h2>
+      <h2><strong>Projets</strong></h2>
       <div id="realisations-img">
         <a href="https://les-artistes-d-abord.netlify.app/" target="_blank">
           <div class="container-card">
@@ -243,11 +253,11 @@
             <h3>JS, Node.js, HTML et CSS</h3>
             <p>
               Un peu d'infomations sur <strong>mon portfolio</strong>, le
-              présent site. J'ai utilisé <strong>Node.js</strong> et la librairie
-              <strong>express.js</strong> pour la partie backend. Ensuite,
-              <strong>EmailJS</strong> pour le bon traitement du formulaire. Enfin,
-              une balise <strong>canvas</strong> et un peu de maths pour l'effet
-              "explosion de particules".
+              présent site. J'ai utilisé <strong>Node.js</strong> et la
+              librairie <strong>express.js</strong> pour la partie backend.
+              Ensuite, <strong>EmailJS</strong> pour le bon traitement du
+              formulaire. Enfin, une balise <strong>canvas</strong> et un peu de
+              maths pour l'effet "explosion de particules".
             </p>
           </div>
         </a>
@@ -260,9 +270,11 @@
               m'améliorer dans l'agorithmie et les tests unitaires. Il y a bien
               entendu du <strong>HTML</strong> ,
               <strong>JS (Vanilla)</strong> et comme framework,<strong
-                >Tailwind CSS</strong 
-              >. Pour les tests unitaire, j'ai utilisé <strong>Jasmine</strong>
-              . Je voulais tout d'abord implémenter mon dé en <strong>Three.js</strong> mais j'ai pas encore les compétences (j'espère les acquérir bientôt). 
+                >Tailwind CSS</strong
+              >. Pour les tests unitaire, j'ai utilisé
+              <strong>Jasmine</strong> . Je voulais tout d'abord implémenter mon
+              dé en <strong>Three.js</strong> mais j'ai pas encore les
+              compétences (j'espère les acquérir bientôt).
             </p>
           </div>
         </a>
@@ -271,7 +283,9 @@
             <img src="medias/Clipboard.webp" alt="Figma" />
             <h3>Wireframes et mokups avec Figma</h3>
             <p>
-              En <strong>UX/UI</strong>, l'expérience utilisateur est au centre des préoccupations. Je ne peux plus imaginer un site web sans avoir travaillé le <strong>design thinking</strong>.
+              En <strong>UX/UI</strong>, l'expérience utilisateur est au centre
+              des préoccupations. Je ne peux plus imaginer un site web sans
+              avoir travaillé le <strong>design thinking</strong>.
             </p>
           </div>
         </a>
@@ -542,7 +556,7 @@
       <div id="copyright">© MatVD 2022</div>
       <a href="./confidentialite.html">Politique de confidentialité</a>
     </footer>
-    
+
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
