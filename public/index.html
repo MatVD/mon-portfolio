@@ -199,11 +199,18 @@
         <hr />
         <div id="contact-intro">
           <h2>Contact</h2>
-          <form id="contact-form">
-            <input type="text" placeholder="Votre nom">
-            <input type="email" placeholder="Votre email">
-            <textarea name="message" id="message" cols="20" rows="5" placeholder="Votre message"></textarea>
+          <form name="contact" id="contact-form">
+            <input type="text" placeholder="Nom" id="name_input"
+            required>
+            <input type="email" placeholder="Email" id="email_input"
+            required>
+            <textarea name="message" id="message" id="message_input"
+            required placeholder="Votre message"></textarea>
+            <div class="submit" id="container-btn">
+              <input type="submit" value="Envoyer" id="form_button" />
+            </div>
           </form>
+          <p tabindex="-1" id="p-info"></p>
         </div>
       </div>
     </section>
@@ -448,10 +455,8 @@
             <label for="message"></label>
             <textarea
               name="message"
-              placeholder="Message ici... *"
+              placeholder="Message... *"
               id="message_input"
-              cols="30"
-              rows="5"
               required
             ></textarea>
           </div>
@@ -459,6 +464,10 @@
             <input type="submit" value="Envoyer" id="form_button" />
           </div>
         </form>
+        <p id="donnee-form">En envoyant mes données personelles dans ce formulaire, je conscens à ce qu'elles soient traités selon la <a href="./confidentialite.html">Politique de confidentialité</a> de mon site.</p>
+        
+        <br>
+
         <!-- // End form -->
       </div>
       <p tabindex="-1" id="p-info"></p>
