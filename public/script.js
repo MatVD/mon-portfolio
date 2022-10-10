@@ -1,3 +1,35 @@
+// ------------ Text animation ------------- //
+function typeEffect(element, speed) {
+  let text = element.textContent;
+  element.textContent = "";
+  
+  let i = 0;
+  let timer = setInterval(function() {
+    if (i < text.length) {
+      element.append(text.charAt(i));
+      i++;
+    } else {
+      clearInterval(timer);
+    }
+  }, speed);
+}
+
+
+// application
+const speed = 175;
+const span1 = document.getElementById('span1');
+const span2 = document.getElementById('span2');
+
+// type affect to header
+setTimeout(() => {
+  span1.style.display = "initial"
+  typeEffect(span1, speed)
+  setTimeout(() => {
+    span2.style.display = "initial"
+    typeEffect(span2, speed)
+  }, 3000);
+}, 4000);
+
 
 
 // ----------- bandeau / canvas ------------ //
@@ -22,7 +54,7 @@ class Particule {
   constructor(){
     this.x = Math.random() * canvas.width; // surgissement d'une particule aléatoirement
     this.y = Math.random() * canvas.height; 
-    this.size = Math.random() * 3 + 1; // taille aléatoire
+    this.size = Math.random() * 2 + 1; // taille aléatoire
     this.speedX = Math.random() * 3 - 1.5; 
     this.speedY = Math.random() * 3 - 1.5; // vitesse aléatoire
   }

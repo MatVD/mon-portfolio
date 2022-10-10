@@ -52,7 +52,7 @@ nav {
     z-index: 1000;
     bottom: 0px;
     background-color: #d6d3d3;
-    height: 65px;
+    height: 75px;
     width: 100%;
     margin: O auto;
     display: flex;
@@ -90,14 +90,14 @@ section#bandeau {
     background-size: cover;
     box-shadow: var(--shadow-box1);
     position: relative;
-    padding: 20px;
+    padding: 24px;
 }
 #bandeau p:first-child {
     text-transform: uppercase;
-    font-size: 1.4em;
+    font-size: 1.5em;
     letter-spacing: 2px;
     color: rgb(0, 0, 0);
-    margin-top: 5px;
+    margin-top: 8px;
     font-weight: 700;
 }
 h1 {
@@ -105,9 +105,15 @@ h1 {
     color: white;
     font-weight: lighter;
     letter-spacing: 1px;
-    margin-top: 5px;
+    margin-top: 8px;
     line-height: 25px;
 }
+
+h1 #span1,
+h1 #span2 {
+  display: none;
+}
+
 
 /* ----- reseaux sociaux ----- */
 #bandeau div.reseaux-sociaux {
@@ -116,10 +122,10 @@ h1 {
     display: inline-flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 24px;
 }
 #bandeau svg, #bandeau img {
-    margin: 6px 0;
+    margin: 8px 0;
 }
 
 #bandeau img {
@@ -141,27 +147,28 @@ h1 {
 
 #presentation-content {
   margin: auto;
-  padding: 0 20px;
+  padding: 0 24px;
   text-align: justify;
 }
 
 #presentation-content h2 {
     display: initial;
     letter-spacing: 1px;
+    text-align: inherit;
 
 }
 #presentation-content p {
-  margin-top: 10px;
-  line-height: 25px;
+  margin-top: 8px;
+  line-height: 24px;
 }
+
 #presentation-content hr {
   display: none;
 }
 
-#contact-intro {
+#aware-intro p{
   display: none;
 }
-
 
 /* ======== réalisation ======= */
 /* ============================ */
@@ -533,19 +540,23 @@ section#bandeau {
 }
 
 #presentation-content hr {
-  margin-left: 50px;
-  margin-right: 30px;
   display: initial;
+  margin: 0 35px;
 }
-#texte-intro {
-  flex: 2;
+#aware-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-#contact-intro {
-  flex: 1;
+#aware-intro p {
   display: initial;
-  text-align: center;
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 1.1em;
 }
+
+
 
 /* ======== réalisation ======= */
 /* ============================ */
