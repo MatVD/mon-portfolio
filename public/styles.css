@@ -52,7 +52,7 @@ nav {
     z-index: 1000;
     bottom: 0px;
     background-color: #d6d3d3;
-    height: 75px;
+    height: 80px;
     width: 100%;
     margin: O auto;
     display: flex;
@@ -85,12 +85,11 @@ nav > ul > li > a {
 /* ========= bandeau ======== */
 /* ========================== */
 section#bandeau {
-    height: 60vh;
+    height: 66vh;
     background: var(--legradient), url(medias/MatVD.webp ) no-repeat;
     background-size: cover;
     box-shadow: var(--shadow-box1);
-    position: relative;
-    padding: 24px;
+    padding: 16px 24px;
 }
 #bandeau p:first-child {
     text-transform: uppercase;
