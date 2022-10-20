@@ -9,7 +9,7 @@
       content="Votre projet web front-end entre de bonnes mains. Fraichement formé et à jour sur les technologies web. SEO, mobile first et accesibilité"
     />
     <title>MatVD - Portfolio</title>
-    <link rel="stylesheet" href="styles.min.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <!-- ==============  navbar =============== -->
@@ -70,11 +70,11 @@
 
     <!-- ========== bandeau accueil =========== -->
     <section id="bandeau">
-      <div id="apropos">
+      <div class="apropos">
         <p>Mathieu VAN DAMME</p>
         <h1>
-          Développeur front-end <span id="span1">Junior et</span>
-          <span id="span2">"Aware" :)</span>
+          Développeur front-end <span id="span1">React</span>
+          <span id="span2">et "Aware" :)</span>
         </h1>
       </div>
       <div class="reseaux-sociaux">
@@ -192,7 +192,7 @@
             Marié à une talentueuse et jolie artiste peintre. Sans enfants et
             sans animaux qui viendront machouiller
             <strong>le projet web</strong> que vous lui confierez. Allez!
-            J'arrête de parler à la troisième personne.<br />
+            J'arrête de parler à la troisième personne. <br><br>
             Pourquoi me confier votre projet ? Etant donné que l'on fait
             confiance sur des actes plus que sur des mots,
             <strong>jugez mes réalisations</strong> et
@@ -210,6 +210,18 @@
     <section id="realisations">
       <h2><strong>Projets</strong></h2>
       <div id="realisations-img">
+        <a href="https://ecommerce-matvd.vercel.app/" target="_blank">
+          <div class="container-card">
+            <img
+              src="medias/Site e-commerce nextJS.webp"
+              alt="Site pour passionné Hi-Tech"
+            />
+            <h3>React, Next et Sanity</h3>
+            <p>
+              E-commerce réaliser de A à Z avec <strong>Stripe</strong> pour la gestion des paiements
+            </p>
+          </div>
+        </a>
         <a href="https://les-artistes-d-abord.netlify.app/" target="_blank">
           <div class="container-card">
             <img
@@ -236,7 +248,7 @@
               alt="Mon tout premier site web"
             />
             <h3>Wordpress</h3>
-            <p>Site d'une merveilleuse artiste peintre! Ma femme.</p>
+            <p>Mon tout premier site web. Celui d'une artiste peintre</p>
           </div>
         </a>
         <a href="#" target="_blank">
@@ -264,15 +276,13 @@
             <img src="medias/jeuDede.webp" alt="Jeu de dé en ligne " />
             <h3>Node.js, Jasmine, Tailwind Css</h3>
             <p>
-              Au cour de ma formation, j'ai eu à faire ce site afin de
+              Pour un projet personel, j'ai réalisé ce site afin de
               m'améliorer dans l'agorithmie et les tests unitaires. Il y a bien
               entendu du <strong>HTML</strong> ,
-              <strong>JS (Vanilla)</strong> et comme framework,<strong
-                >Tailwind CSS</strong
-              >. Pour les tests unitaire, j'ai utilisé
-              <strong>Jasmine</strong> . Je voulais tout d'abord implémenter mon
-              dé en <strong>Three.js</strong> mais j'ai pas encore les
-              compétences (j'espère les acquérir bientôt).
+              <strong>JS (Vanilla)</strong> et comme framework CSS je me suis essayé à,<strong
+                >Tailwind</strong
+              > que j'ai beaucoup apprécié. Pour les tests unitaire, je suis partie sur
+              <strong>Jasmine</strong> que j'ai découvert pour l'occasion.
             </p>
           </div>
         </a>
@@ -308,6 +318,14 @@
         <h2>Hard <strong>skills</strong></h2>
         <ul>
           <li>
+            <label for="react">REACT</label>
+            <progress id="react" max="100" value="30">30%</progress>
+          </li>
+          <li>
+            <label for="javascript">JAVASCRIPT</label>
+            <progress id="javascript" max="100" value="60">60%</progress>
+          </li>
+          <li>
             <label for="html">HTML</label>
             <progress id="html" max="100" value="70">70%</progress>
           </li>
@@ -318,10 +336,6 @@
           <li>
             <label for="sass">SASS</label>
             <progress id="sass" max="100" value="30">30%</progress>
-          </li>
-          <li>
-            <label for="javascript">JAVASCRIPT</label>
-            <progress id="javascript" max="100" value="60">60%</progress>
           </li>
           <li>
             <label for="python">PYTHON</label>
@@ -347,6 +361,7 @@
           <li>A L'ECOUTE</li>
           <li>ADAPTATION</li>
           <li>COMMUNICATION</li>
+          <li>SENSIBILTÉ UX</li>
         </ul>
         <h2>Frame<strong>works</strong> Librairies</h2>
         <ul>
@@ -369,10 +384,6 @@
           <li>
             <label for="wordpress">WORDPRESS</label>
             <progress id="wordpress" max="100" value="40">40%</progress>
-          </li>
-          <li>
-            <label for="react">REACT</label>
-            <progress id="react" max="100" value="20">20%</progress>
           </li>
           <li>
             <label for="figma">FIGMA</label>
@@ -459,7 +470,7 @@
           En envoyant mes données personelles dans ce formulaire, je conscens à
           ce qu'elles soient traitées selon la
           <a href="./confidentialite.html">Politique de confidentialité</a> de
-          mon site.
+          ce site.
         </p>
 
         <br />
@@ -560,7 +571,6 @@
       </div>
       <div id="copyright">
         © Mathieu VAN DAMME 2022 <br>
-        Le développeur le plus aware qui soit !
       </div>
       <a href="./confidentialite.html">Politique de confidentialité</a>
     </footer>
@@ -569,6 +579,6 @@
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
     ></script>
-    <script src="script.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

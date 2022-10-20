@@ -27,7 +27,7 @@ setTimeout(() => {
   setTimeout(() => {
     span2.style.display = "initial"
     typeEffect(span2, speed)
-  }, 3000);
+  }, 5000);
 }, 4000);
 
 
