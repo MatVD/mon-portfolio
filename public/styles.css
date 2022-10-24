@@ -236,6 +236,41 @@ h1 #span2 {
 
 /* ======== compétences ======= */
 /* ============================ */
+.bigWrapperSvg {
+  display: flex;
+  flex-direction: row;
+}
+
+.wrapperSvg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#competences svg {
+  display: inline-flex;
+  vertical-align: bottom;
+  width: 100px;
+  height: 100px;
+}
+
+#competences circle {
+  stroke: rgba(#fff, 0.25);
+  stroke-width: 5px;
+  stroke-dasharray: 0;
+  fill: none;
+}
+
+#competences .meter {
+  stroke-width: 5px;
+  stroke: #44b0deda;
+  fill: none;
+  transition: stroke-dashoffset 1s cubic-bezier(0.43, 0.41, 0.22, 0.91);
+  transform-origin: center center;
+  transform: rotate(-90deg) scaleX(-1);
+}
+
+
 #competences {
   background: #ebebeb;
   box-shadow: var(--shadow-box1);
@@ -287,7 +322,6 @@ progress[value]::-webkit-progress-bar {
   background-image: -webkit-linear-gradient(left, #e0da80, #44b0deda);
   border-radius: 5px;
 }
-
 /* =========== Forms ========== */
 /* ============================ */
 section#contact {
