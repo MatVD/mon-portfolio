@@ -179,7 +179,7 @@ h1 #span2 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 85%;
+  width: 84%;
   margin: 20px auto;
   text-decoration: none;
   color: var(--h2-color);
