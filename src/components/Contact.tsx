@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { Mail, MessageSquare, User, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Mail, MessageSquare, User, Send, CheckCircle, AlertCircle, ExternalLink } from 'lucide-react';
 import { ContactForm } from '../types';
+import { EmailService } from '../services/emailService';
 
 export const Contact: React.FC = () => {
   const [formData, setFormData] = useState<ContactForm>({
@@ -10,13 +11,20 @@ export const Contact: React.FC = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Partial<ContactForm>>({});
+
+  useEffect(() => {
+    EmailService.initialize();
+  }, []);
 
   const validateForm = (): boolean => {
     const newErrors: Partial<ContactForm> = {};
     
     if (!formData.name.trim()) {
       newErrors.name = 'Le nom est requis';
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = 'Le nom doit contenir au moins 2 caractères';
     }
     
     if (!formData.email.trim()) {
@@ -27,6 +35,8 @@ export const Contact: React.FC = () => {
     
     if (!formData.message.trim()) {
       newErrors.message = 'Le message est requis';
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = 'Le message doit contenir au moins 10 caractères';
     }
     
     setErrors(newErrors);
@@ -39,16 +49,28 @@ export const Contact: React.FC = () => {
     if (!validateForm()) return;
     
     setIsSubmitting(true);
+    setSubmitError(null);
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSubmitted(true);
-      setFormData({ name: '', email: '', message: '' });
+    try {
+      const success = await EmailService.sendContactEmail(formData);
       
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSubmitted(false), 5000);
-    }, 2000);
+      if (success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        
+        // Reset success message after 8 seconds
+        setTimeout(() => setIsSubmitted(false), 8000);
+      } else {
+        throw new Error('Échec de l\'envoi');
+      }
+    } catch (error) {
+      console.error('Erreur lors de l\'envoi:', error);
+      setSubmitError(
+        'Une erreur est survenue lors de l\'envoi. Vous pouvez essayer de m\'envoyer un email directement.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -59,6 +81,15 @@ export const Contact: React.FC = () => {
     if (errors[name as keyof ContactForm]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
+    
+    // Clear submit error when user modifies form
+    if (submitError) {
+      setSubmitError(null);
+    }
+  };
+
+  const handleMailtoFallback = () => {
+    EmailService.openMailtoFallback(formData);
   };
 
   if (isSubmitted) {
@@ -69,11 +100,18 @@ export const Contact: React.FC = () => {
             <div className="bg-green-50 dark:bg-green-900/20 rounded-2xl p-8">
               <CheckCircle size={64} className="text-green-600 dark:text-green-400 mx-auto mb-4" />
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                Message envoyé !
+                Message envoyé avec succès !
               </h2>
-              <p className="text-gray-600 dark:text-gray-300">
-                Merci pour votre message. Je vous recontacterai dans les plus brefs délais.
+              <p className="text-gray-600 dark:text-gray-300 mb-6">
+                Merci pour votre message, <strong>{formData.name || 'cher visiteur'}</strong>. 
+                Je vous recontacterai dans les plus brefs délais à l'adresse <strong>{formData.email}</strong>.
               </p>
+              <button
+                onClick={() => setIsSubmitted(false)}
+                className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
+              >
+                Envoyer un autre message
+              </button>
             </div>
           </div>
         </div>
@@ -115,7 +153,12 @@ export const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
-                    <p className="text-gray-600 dark:text-gray-300">contact@mat-site-web.com</p>
+                    <a 
+                      href="mailto:contact@mat-site-web.com"
+                      className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    >
+                      contact@mat-site-web.com
+                    </a>
                   </div>
                 </div>
 
@@ -132,6 +175,27 @@ export const Contact: React.FC = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              {submitError && (
+                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+                  <div className="flex items-start">
+                    <AlertCircle className="text-red-600 dark:text-red-400 mt-0.5 mr-3" size={20} />
+                    <div className="flex-1">
+                      <p className="text-red-800 dark:text-red-200 text-sm mb-2">
+                        {submitError}
+                      </p>
+                      <button
+                        type="button"
+                        onClick={handleMailtoFallback}
+                        className="inline-flex items-center text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 text-sm font-medium"
+                      >
+                        <ExternalLink size={16} className="mr-1" />
+                        Ouvrir mon client email
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   Nom *
@@ -146,10 +210,11 @@ export const Contact: React.FC = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className={`block w-full pl-10 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white ${
+                    className={`block w-full pl-10 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 ${
                       errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                     }`}
-                    placeholder="Votre nom"
+                    placeholder="Votre nom complet"
+                    disabled={isSubmitting}
                   />
                 </div>
                 {errors.name && (
@@ -174,10 +239,11 @@ export const Contact: React.FC = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className={`block w-full pl-10 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white ${
+                    className={`block w-full pl-10 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 ${
                       errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                     }`}
                     placeholder="votre@email.com"
+                    disabled={isSubmitting}
                   />
                 </div>
                 {errors.email && (
@@ -198,10 +264,11 @@ export const Contact: React.FC = () => {
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
-                  className={`block w-full px-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white resize-none ${
+                  className={`block w-full px-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none ${
                     errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
                   }`}
                   placeholder="Décrivez votre projet ou votre question..."
+                  disabled={isSubmitting}
                 />
                 {errors.message && (
                   <p className="mt-1 text-sm text-red-600 dark:text-red-400 flex items-center">
@@ -214,7 +281,7 @@ export const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2"
+                className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 disabled:cursor-not-allowed text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center space-x-2"
               >
                 {isSubmitting ? (
                   <>
@@ -228,6 +295,10 @@ export const Contact: React.FC = () => {
                   </>
                 )}
               </button>
+
+              <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                En soumettant ce formulaire, vous acceptez que vos données soient utilisées pour vous recontacter.
+              </p>
             </form>
           </div>
         </div>

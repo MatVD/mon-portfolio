@@ -19,3 +19,9 @@ export interface ContactForm {
   email: string;
   message: string;
 }
+
+export interface ContactSubmission extends ContactForm {
+  id?: string;
+  created_at?: string;
+  status?: 'pending' | 'processed' | 'replied';
+}
