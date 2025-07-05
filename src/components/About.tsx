@@ -34,8 +34,7 @@ export const About: React.FC = () => {
               À propos
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Développeur fullstack passionné avec une expertise en technologies web modernes 
-              et blockchain, je crée des solutions digitales innovantes et performantes.
+              Qui se cache derrière ce nom à l'allure "sport de combat" ?
             </p>
           </div>
 
