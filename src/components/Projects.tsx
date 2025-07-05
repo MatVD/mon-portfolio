@@ -1,61 +1,73 @@
-import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
-import { Project } from '../types';
+import React from "react";
+import { ExternalLink, Github } from "lucide-react";
+import dasboard from "../assets/images/dashboard-2crypto.png";
+import { Project } from "../types";
 
 export const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
       title: "E-commerce Platform",
-      description: "Plateforme e-commerce complète avec gestion des commandes, paiements et tableau de bord administrateur.",
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["Symfony", "API Platform", "React", "TypeScript", "PostgreSQL"],
+      description:
+        "Plateforme e-commerce complète avec gestion des commandes, paiements et tableau de bord administrateur.",
+      image:
+        "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
+      technologies: ["Symfony", "Stripe", "React", "TypeScript"],
       githubUrl: "https://github.com/mathieu/ecommerce-platform",
-      liveUrl: "https://ecommerce-demo.com"
+      liveUrl: "https://milodiebijoux.com/",
     },
     {
       id: 2,
-      title: "DeFi Dashboard",
-      description: "Tableau de bord pour la finance décentralisée avec intégration de smart contracts et suivi de portefeuille.",
-      image: "https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["React", "TypeScript", "Solidity", "Hardhat", "Web3.js"],
-      githubUrl: "https://github.com/mathieu/defi-dashboard",
-      liveUrl: "https://defi-dashboard.com"
+      title: "Foodtruck Dashboard",
+      description:
+        "Tableau de bord pour la gestion des ventes et des stocks d'un foodtruck.",
+      // Image d'un foodtruck
+      image:
+        "https://crazee-burger-matvd.vercel.app/assets/burger-background-2885f495.webp",
+      technologies: ["React", "TypeScript", "Node.js"],
+      githubUrl: "https://github.com/MatVD/crazee-burger",
+      liveUrl: "https://crazee-burger-matvd.vercel.app/",
     },
     {
       id: 3,
-      title: "Task Management API",
-      description: "API RESTful pour la gestion de tâches avec authentification JWT et documentation OpenAPI.",
-      image: "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["Symfony", "API Platform", "JWT", "Doctrine", "OpenAPI"],
-      githubUrl: "https://github.com/mathieu/task-management-api"
+      title: "NFTs",
+      description: "Création de NFTs",
+      image:
+        "https://i.seadn.io/s/raw/files/406267207152fc628847f75b4e3d39f7.webp?auto=format&dpr=1&w=1000",
+      technologies: ["Solidity", "Hardhat", "Sepolia", "Pinata", "Metamask"],
+      githubUrl: "https://github.com/mathieu/task-management-api",
+      liveUrl:
+        "https://testnets.opensea.io/fr/assets/sepolia/0x20b73972962c00b0c19bfa03d997cf63c207a3e0/1",
     },
     {
       id: 4,
       title: "NFT Marketplace",
-      description: "Marketplace pour les NFTs avec fonctionnalités de mint, achat/vente et enchères.",
-      image: "https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["React", "TypeScript", "Solidity", "IPFS", "Metamask"],
-      githubUrl: "https://github.com/mathieu/nft-marketplace",
-      liveUrl: "https://nft-marketplace.com"
+      description:
+        "Marketplace pour les NFTs avec fonctionnalités de mint, achat/vente et enchères.",
+      image:
+        "https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=600",
+      technologies: ["React", "TypeScript", "Solidity", "Pinata", "Metamask"],
     },
     {
       id: 5,
-      title: "Real Estate Platform",
-      description: "Plateforme immobilière avec recherche avancée, cartographie et gestion des annonces.",
-      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["Symfony", "React", "TypeScript", "PostgreSQL", "Leaflet"],
-      githubUrl: "https://github.com/mathieu/real-estate-platform"
+      title: "Learning Management System",
+      description:
+        "Système de gestion d'apprentissage avec cours en ligne, quiz et suivi de progression.",
+      image:
+        "https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&w=600",
+      technologies: ["Symfony", "API Platform", "React", "TypeScript", "MySQL"],
+      githubUrl: "https://github.com/mathieu/lms-platform",
+      liveUrl: "https://lms-demo.com",
     },
     {
       id: 6,
-      title: "Learning Management System",
-      description: "Système de gestion d'apprentissage avec cours en ligne, quiz et suivi de progression.",
-      image: "https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["Symfony", "API Platform", "React", "TypeScript", "MySQL"],
-      githubUrl: "https://github.com/mathieu/lms-platform",
-      liveUrl: "https://lms-demo.com"
-    }
+      title: "Platforme de scoring de projet web3 et blockchain",
+      description:
+        "Une plateforme dédiée à l'évaluation et au scoring de projets web3 et blockchain, permettant aux utilisateurs de soumettre leurs projets et de recevoir des évaluations détaillées.",
+      image: dasboard,
+      technologies: ["Symfony", "API Platform", "React", "TypeScript", "IA"],
+      liveUrl: "https://app.2crypto.io/",
+    },
   ];
 
   return (
@@ -67,8 +79,8 @@ export const Projects: React.FC = () => {
               Mes Projets
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Découvrez une sélection de projets récents qui illustrent 
-              mon expertise en développement web et blockchain.
+              Découvrez une sélection de projets récents qui illustrent mon
+              expertise en développement web et blockchain.
             </p>
           </div>
 
@@ -86,7 +98,7 @@ export const Projects: React.FC = () => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
-                
+
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {project.title}
@@ -94,7 +106,7 @@ export const Projects: React.FC = () => {
                   <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm leading-relaxed">
                     {project.description}
                   </p>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.technologies.map((tech, index) => (
                       <span
@@ -105,7 +117,7 @@ export const Projects: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  
+
                   <div className="flex space-x-4">
                     {project.githubUrl && (
                       <a
