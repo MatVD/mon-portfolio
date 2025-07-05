@@ -1,5 +1,6 @@
 import React from 'react';
-import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
+import photoProfile from '../assets/images/photo-profile.png';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   const scrollToSection = (sectionId: string) => {
@@ -14,8 +15,8 @@ export const Hero: React.FC = () => {
       <div className="container mx-auto px-4 text-center relative z-10 mt-28">
         <div className="animate-fadeIn">
           <div className="mb-8">
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-white text-4xl font-bold">
-              M
+            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-white text-4xl font-bold overflow-hidden shadow-lg">
+              <img src={photoProfile} alt="Mathieu Van Damme" className="w-full h-full object-cover" />
             </div>
           </div>
           
@@ -49,7 +50,7 @@ export const Hero: React.FC = () => {
           
           <div className="flex justify-center space-x-6 mb-12">
             <a
-              href="https://github.com/mathieu"
+              href="https://github.com/MatVD"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors transform hover:scale-110 duration-200"
@@ -57,7 +58,7 @@ export const Hero: React.FC = () => {
               <Github size={24} className="text-gray-700 dark:text-gray-300" />
             </a>
             <a
-              href="https://linkedin.com/in/mathieu"
+              href="https://www.linkedin.com/in/mathieu-vandamme"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors transform hover:scale-110 duration-200"
