@@ -1,6 +1,16 @@
 import React from "react";
-import { Download, BookOpen, Clock, Users, Award } from "lucide-react";
+import { Download, BookOpen, Clock, Users, MapPinIcon, Award } from "lucide-react";
 import cataloguePdf from "../assets/documents/Catalogue de formations.pdf";
+
+interface Formation {
+  title: string;
+  description: string;
+  duration: string;
+  participants: string;
+  level: string;
+  tjm: string;
+  technologies: string[];
+}
 
 export const Formations: React.FC = () => {
   const handleDownloadCatalogue = () => {
@@ -10,48 +20,119 @@ export const Formations: React.FC = () => {
     link.click();
   };
 
-  const formations = [
+  const formations: Formation[] = [
     {
-      title: "Développement Web Full-Stack",
+      title: "Développement Web",
       description:
-        "Formation complète en développement web moderne avec React, Node.js et bases de données",
-      duration: "6 mois",
-      participants: "8-12",
-      level: "Débutant à Intermédiaire",
-      technologies: ["React", "Node.js", "TypeScript", "MongoDB", "PostgreSQL"],
-    },
-    {
-      title: "JavaScript Avancé & Frameworks",
-      description:
-        "Maîtrisez JavaScript ES6+ et les frameworks modernes pour créer des applications performantes",
-      duration: "3 mois",
-      participants: "6-10",
-      level: "Intermédiaire",
-      technologies: ["ES6+", "React", "Vue.js", "Next.js", "Vite"],
-    },
-    {
-      title: "Bases de Données & API",
-      description:
-        "Conception et développement d'APIs robustes avec gestion optimale des bases de données",
-      duration: "2 mois",
-      participants: "8-12",
-      level: "Intermédiaire à Avancé",
+        "Formation complète front-end et back-end : des bases HTML/CSS aux technologies modernes comme REACT, SYMFONY ou API REST",
+      duration: "Sur mesure",
+      participants: "6-12",
+      level: "Débutant à Avancé",
+      tjm: "390€",
       technologies: [
-        "REST API",
-        "GraphQL",
-        "PostgreSQL",
-        "MongoDB",
-        "Supabase",
+        "HTML/CSS",
+        "JavaScript",
+        "TypeScript",
+        "React",
+        "PHP/Symfony",
+        "Git",
+        "GitHub",
+        "GitLab",
+        "CI/CD",
+        "Docker",
       ],
     },
     {
-      title: "DevOps & Déploiement",
+      title: "Web3 - Blockchain - Crypto",
       description:
-        "Automatisation du déploiement et bonnes pratiques DevOps pour les applications web",
-      duration: "1 mois",
-      participants: "6-8",
-      level: "Avancé",
-      technologies: ["Docker", "CI/CD", "Netlify", "Vercel", "GitHub Actions"],
+        "Développement blockchain et crypto : smart contracts, dApps et écosystème Web3",
+      duration: "Sur mesure",
+      participants: "4-8",
+      level: "Débutant à intermédiaire",
+      tjm: "440€",
+      technologies: [
+        "Solidity",
+        "NFTs",
+        "Ethereum",
+        "Sepolia",
+        "ZKSync",
+        "Avalanche",
+        "Hardhat",
+        "Foundry",
+        "Bitcoin",
+        "ETH",
+        "XRP",
+        "SOL",
+        "BNB",
+      ],
+    },
+    {
+      title: "Formation IA",
+      description:
+        "Maîtrise des outils d'Intelligence Artificielle pour développeurs et professionnels",
+      duration: "Sur mesure",
+      participants: "8-10",
+      level: "Débutant à intermédiaire",
+      tjm: "490€",
+      technologies: [
+        "Microsoft Copilot",
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Perplexity",
+        "GitHub Copilot",
+      ],
+    },
+    {
+      title: "Sécurité Web et Blockchain",
+      description:
+        "Sécurité informatique web2 et web3, audit de sécurité et recherche de vulnérabilités",
+      duration: "Sur mesure",
+      participants: "6-10",
+      level: "Débutant à intermédiaire",
+      tjm: "440€",
+      technologies: [
+        "Qualys",
+        "OWASP ZAP",
+        "Slither",
+        "Solhint",
+        "Web3 Security",
+        "Audit de sécurité",
+      ],
+    },
+    {
+      title: "Anglais Professionnel",
+      description:
+        "Cours de langue anglaise en contexte professionnel : prise de parole, rédaction, comptes rendus",
+      duration: "Sur mesure",
+      participants: "10-12",
+      level: "Débutant à intermédiaire",
+      tjm: "320€",
+      technologies: [
+        "Anglais business",
+        "Prise de parole",
+        "Rédaction",
+        "Compte rendu",
+        "Communication",
+      ],
+    },
+    {
+      title: "Gestion de Projets",
+      description:
+        "Méthodes Agile et SCRUM, outils de gestion de projet pour équipes tech",
+      duration: "Sur mesure",
+      participants: "10-15",
+      level: "Débutant à Intermédiaire",
+      tjm: "340€",
+      technologies: [
+        "Agile",
+        "SCRUM",
+        "Jira",
+        "Miro",
+        "Confluence",
+        "Notion",
+        "GitLab",
+      ],
     },
   ];
 
@@ -63,9 +144,9 @@ export const Formations: React.FC = () => {
             Catalogue de Formations
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-            Développez vos compétences en développement web avec nos formations
-            sur mesure. Du niveau débutant à expert, découvrez nos programmes
-            adaptés à vos besoins.
+            Formations professionnelles sur mesure en développement web,
+            blockchain, IA, sécurité, anglais et gestion de projets. Programmes
+            adaptés avec tarification journalière transparente.
           </p>
 
           {/* Bouton de téléchargement du catalogue */}
@@ -79,21 +160,15 @@ export const Formations: React.FC = () => {
         </div>
 
         {/* Grid des formations */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mb-16">
           {formations.map((formation, index) => (
             <div
               key={index}
-              className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
+              className="flex flex-col justify-between bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
             >
               <div className="flex items-start gap-4 mb-4">
-                <div className="bg-blue-100 dark:bg-blue-900 p-3 rounded-lg">
-                  <BookOpen
-                    className="text-blue-600 dark:text-blue-400"
-                    size={24}
-                  />
-                </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                     {formation.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
@@ -113,9 +188,13 @@ export const Formations: React.FC = () => {
                     {formation.participants} participants
                   </span>
                 </div>
-                <div className="col-span-2 flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <Award size={16} />
                   <span className="text-sm">Niveau : {formation.level}</span>
+                </div>
+                <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 font-semibold">
+                  <span className="text-sm">💰</span>
+                  <span className="text-sm">TJM : {formation.tjm}</span>
                 </div>
               </div>
 
@@ -144,7 +223,7 @@ export const Formations: React.FC = () => {
             Informations Pratiques
           </h3>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="bg-green-100 dark:bg-green-900 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                 <BookOpen
@@ -169,10 +248,25 @@ export const Formations: React.FC = () => {
                 />
               </div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                Groupes Restreints
+                En groupe ou individuel
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Maximum 12 participants pour un suivi personnalisé optimal
+                Maximum 15 participants pour un suivi personnalisé optimal
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="bg-blue-100 dark:bg-blue-900 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                <MapPinIcon
+                  className="text-blue-600 dark:text-blue-400"
+                  size={24}
+                />
+              </div>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
+                En présentiel ou distanciel
+              </h4>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
+                Formations disponibles en visio ou en centre. Pour des cours individuels, je peux venir à domicile
               </p>
             </div>
 

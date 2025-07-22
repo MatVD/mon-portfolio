@@ -50,8 +50,6 @@ function App() {
       console.warn("Variables d'environnement manquantes:", missingVars);
       // En production, on peut continuer à fonctionner avec des valeurs par défaut
     }
-
-    console.log("App initialized successfully");
   }, []);
 
   return (
