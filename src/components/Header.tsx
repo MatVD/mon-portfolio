@@ -55,6 +55,12 @@ export const Header: React.FC<HeaderProps> = ({
               Compétences
             </button>
             <button
+              onClick={() => scrollToSection("formations")}
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+            >
+              Formations
+            </button>
+            <button
               onClick={() => scrollToSection("contact")}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
@@ -113,6 +119,12 @@ export const Header: React.FC<HeaderProps> = ({
                 className="text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 Compétences
+              </button>
+              <button
+                onClick={() => scrollToSection("formations")}
+                className="text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                Formations
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
