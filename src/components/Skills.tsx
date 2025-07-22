@@ -1,44 +1,108 @@
-import React from 'react';
-import { Code, Database, Wrench, Layers, Shield, Globe } from 'lucide-react';
+import React from "react";
+import { Code, Database, Wrench, Layers, Shield, Globe } from "lucide-react";
+import { Language } from "../types";
+import { t } from "../lib/translations";
 
-export const Skills: React.FC = () => {
+interface SkillsProps {
+  language: Language;
+}
+
+export const Skills: React.FC<SkillsProps> = ({ language }) => {
   const skillCategories = [
     {
-      title: "Frontend",
+      title: t("frontend", language),
       icon: <Code size={24} />,
       color: "bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300",
-      skills: ["React", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Bootstrap", "Vite"]
+      skills: [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS",
+        "Bootstrap",
+        "Vite",
+      ],
     },
     {
-      title: "Backend",
+      title: t("backend", language),
       icon: <Layers size={24} />,
-      color: "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300",
-      skills: ["Symfony", "API Platform", "PHP", "Node.js", "RESTful APIs", "GraphQL", "JWT", "OAuth"]
+      color:
+        "bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300",
+      skills: [
+        "Symfony",
+        "API Platform",
+        "PHP",
+        "Node.js",
+        "RESTful APIs",
+        "GraphQL",
+        "JWT",
+        "OAuth",
+      ],
     },
     {
-      title: "Blockchain",
+      title: t("blockchain", language),
       icon: <Shield size={24} />,
-      color: "bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300",
-      skills: ["Solidity", "Hardhat", "Web3.js", "Ethers.js", "Smart Contracts", "DeFi", "NFTs", "IPFS"]
+      color:
+        "bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300",
+      skills: [
+        "Solidity",
+        "Hardhat",
+        "Web3.js",
+        "Ethers.js",
+        "Smart Contracts",
+        "DeFi",
+        "NFTs",
+        "IPFS",
+      ],
     },
     {
-      title: "Database",
+      title: t("database", language),
       icon: <Database size={24} />,
-      color: "bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-300",
-      skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis", "Doctrine ORM", "Prisma", "SQL", "NoSQL"]
+      color:
+        "bg-yellow-100 dark:bg-yellow-900 text-yellow-600 dark:text-yellow-300",
+      skills: [
+        "PostgreSQL",
+        "MySQL",
+        "MongoDB",
+        "Redis",
+        "Doctrine ORM",
+        "Prisma",
+        "SQL",
+        "NoSQL",
+      ],
     },
     {
-      title: "Tools & DevOps",
+      title: t("toolsDevops", language),
       icon: <Wrench size={24} />,
       color: "bg-red-100 dark:bg-red-900 text-red-600 dark:text-red-300",
-      skills: ["Git", "Docker", "CI/CD", "GitHub Actions", "Webpack", "ESLint", "Prettier", "Jest"]
+      skills: [
+        "Git",
+        "Docker",
+        "CI/CD",
+        "GitHub Actions",
+        "Webpack",
+        "ESLint",
+        "Prettier",
+        "Jest",
+      ],
     },
     {
-      title: "Cloud & Hosting",
+      title: t("cloudHosting", language),
       icon: <Globe size={24} />,
-      color: "bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300",
-      skills: ["AWS", "Google Cloud", "Vercel", "Netlify", "Heroku", "DigitalOcean", "Cloudflare", "Firebase"]
-    }
+      color:
+        "bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300",
+      skills: [
+        "AWS",
+        "Google Cloud",
+        "Vercel",
+        "Netlify",
+        "Heroku",
+        "DigitalOcean",
+        "Cloudflare",
+        "Firebase",
+      ],
+    },
   ];
 
   return (
@@ -47,11 +111,10 @@ export const Skills: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Compétences
+              {t("skillsTitle", language)}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Une stack technique complète pour développer des applications web modernes, 
-              des APIs robustes et des solutions blockchain innovantes.
+              {t("skillsDescription", language)}
             </p>
           </div>
 
@@ -69,7 +132,7 @@ export const Skills: React.FC = () => {
                     {category.title}
                   </h3>
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
                     <span
@@ -87,12 +150,10 @@ export const Skills: React.FC = () => {
           <div className="mt-16 text-center">
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-2xl p-8">
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-                Toujours en apprentissage
+                {t("alwaysLearning", language)}
               </h3>
               <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Je reste constamment à jour avec les dernières technologies et tendances 
-                du développement web. La curiosité et l'apprentissage continu sont 
-                au cœur de ma démarche professionnelle.
+                {t("learningDescription", language)}
               </p>
             </div>
           </div>
