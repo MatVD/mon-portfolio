@@ -1,24 +1,25 @@
 import React from "react";
 import { ExternalLink, Github } from "lucide-react";
 import dasboard from "../assets/images/dashboard-2crypto.png";
+import milodie from "../assets/images/milodie.webp";
+import marketplace from "../assets/images/marketplace.gif";
 import { Project } from "../types";
 
 export const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-commerce Platform",
+      title: "Platform e-commerce",
       description:
         "Plateforme e-commerce complète avec gestion des commandes, paiements et tableau de bord administrateur.",
-      image:
-        "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: milodie,
       technologies: ["Symfony", "Stripe", "React", "TypeScript"],
       githubUrl: "https://github.com/mathieu/ecommerce-platform",
       liveUrl: "https://milodiebijoux.com/",
     },
     {
       id: 2,
-      title: "Foodtruck Dashboard",
+      title: "Dashboard Foodtruck",
       description:
         "Tableau de bord pour la gestion des ventes et des stocks d'un foodtruck.",
       // Image d'un foodtruck
@@ -41,11 +42,10 @@ export const Projects: React.FC = () => {
     },
     {
       id: 4,
-      title: "NFT Marketplace",
+      title: "Marketplace NFTs",
       description:
         "Marketplace pour les NFTs avec fonctionnalités de mint, achat/vente et enchères.",
-      image:
-        "https://images.pexels.com/photos/8370752/pexels-photo-8370752.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: marketplace,
       technologies: ["React", "TypeScript", "Solidity", "Pinata", "Metamask"],
     },
     {
