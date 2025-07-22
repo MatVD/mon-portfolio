@@ -1,5 +1,5 @@
 import React from "react";
-import { Heart, Github, Linkedin, Mail } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { t } from "../lib/translations";
 import { Language } from "../types";
 
@@ -130,9 +130,7 @@ export const Footer: React.FC<FooterProps> = ({ language }) => {
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-gray-400 flex items-center justify-center">
-              © {currentYear} Mathieu. {t("developedWith", language)}{" "}
-              <Heart size={16} className="text-red-500 mx-1" />
-              React + TypeScript
+              © Copyright {currentYear} - Van Damme Mathieu.
             </p>
           </div>
         </div>
