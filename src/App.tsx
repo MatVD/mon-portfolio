@@ -57,10 +57,10 @@ function App() {
       <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <main>
         <Hero />
-        <About />
-        <Projects />
-        <Skills />
         <Formations />
+        <Skills />
+        <Projects />
+        <About />
         <Contact />
       </main>
       <Footer />

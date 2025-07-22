@@ -155,7 +155,7 @@ export const Formations: React.FC = () => {
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
             <Download size={20} />
-            Télécharger le catalogue complet
+            Télécharger le catalogue de formations
           </button>
         </div>
 

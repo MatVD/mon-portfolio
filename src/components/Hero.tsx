@@ -25,7 +25,7 @@ export const Hero: React.FC = () => {
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 max-w-4xl mx-auto">
-            Développeur et formateur web2 & web3
+             Formateur et développeur web2 & blockchain
           </p>
           
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
