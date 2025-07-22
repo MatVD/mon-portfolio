@@ -7,7 +7,6 @@ import { Skills } from "./components/Skills";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { useDarkMode } from "./hooks/useDarkMode";
-import "./debug"; // Import debug logging
 
 function App() {
   const [isDarkMode, toggleDarkMode] = useDarkMode();
