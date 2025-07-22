@@ -1,8 +1,8 @@
 import React from "react";
 import { ExternalLink, Github } from "lucide-react";
-import dasboard from "../assets/images/dashboard-2crypto.png";
-import milodie from "../assets/images/milodie.webp";
+import milodie from "../assets/images/milodie.gif";
 import marketplace from "../assets/images/marketplace.gif";
+import twocrytoApp from "../assets/images/2cryptoApp.gif";
 import { Project } from "../types";
 
 export const Projects: React.FC = () => {
@@ -64,7 +64,7 @@ export const Projects: React.FC = () => {
       title: "Platforme de scoring de projet web3 et blockchain",
       description:
         "Une plateforme dédiée à l'évaluation et au scoring de projets web3 et blockchain, permettant aux utilisateurs de soumettre leurs projets et de recevoir des évaluations détaillées.",
-      image: dasboard,
+      image: twocrytoApp,
       technologies: ["Symfony", "API Platform", "React", "TypeScript", "IA"],
       liveUrl: "https://app.2crypto.io/",
     },
