@@ -1,18 +1,31 @@
 import React from "react";
-import { Download, BookOpen, Clock, Users, MapPinIcon, Award } from "lucide-react";
+import {
+  Download,
+  BookOpen,
+  Clock,
+  Users,
+  MapPinIcon,
+  Award,
+} from "lucide-react";
 import cataloguePdf from "../assets/documents/Catalogue de formations.pdf";
+import { t } from "../lib/translations";
+import { Language } from "../types";
 
 interface Formation {
-  title: string;
-  description: string;
+  titleKey: keyof import("../types").Translations;
+  descriptionKey: keyof import("../types").Translations;
   duration: string;
   participants: string;
-  level: string;
+  levelKey: keyof import("../types").Translations;
   tjm: string;
   technologies: string[];
 }
 
-export const Formations: React.FC = () => {
+interface FormationsProps {
+  language: Language;
+}
+
+export const Formations: React.FC<FormationsProps> = ({ language }) => {
   const handleDownloadCatalogue = () => {
     const link = document.createElement("a");
     link.href = cataloguePdf;
@@ -22,12 +35,11 @@ export const Formations: React.FC = () => {
 
   const formations: Formation[] = [
     {
-      title: "Développement Web",
-      description:
-        "Formation complète front-end et back-end : des bases HTML/CSS aux technologies modernes comme REACT, SYMFONY ou API REST",
-      duration: "Sur mesure",
+      titleKey: "webDevTitle",
+      descriptionKey: "webDevDesc",
+      duration: t("custom", language),
       participants: "6-12",
-      level: "Débutant à Avancé",
+      levelKey: "beginnerToAdvanced",
       tjm: "390€",
       technologies: [
         "HTML/CSS",
@@ -43,12 +55,11 @@ export const Formations: React.FC = () => {
       ],
     },
     {
-      title: "Web3 - Blockchain - Crypto",
-      description:
-        "Développement blockchain et crypto : smart contracts, dApps et écosystème Web3",
-      duration: "Sur mesure",
+      titleKey: "web3Title",
+      descriptionKey: "web3Desc",
+      duration: t("custom", language),
       participants: "4-8",
-      level: "Débutant à intermédiaire",
+      levelKey: "beginnerToIntermediate",
       tjm: "440€",
       technologies: [
         "Solidity",
@@ -67,12 +78,11 @@ export const Formations: React.FC = () => {
       ],
     },
     {
-      title: "Formation IA",
-      description:
-        "Maîtrise des outils d'Intelligence Artificielle pour développeurs et professionnels",
-      duration: "Sur mesure",
+      titleKey: "aiTitle",
+      descriptionKey: "aiDesc",
+      duration: t("custom", language),
       participants: "8-10",
-      level: "Débutant à intermédiaire",
+      levelKey: "beginnerToIntermediate",
       tjm: "490€",
       technologies: [
         "Microsoft Copilot",
@@ -84,12 +94,11 @@ export const Formations: React.FC = () => {
       ],
     },
     {
-      title: "Sécurité Web et Blockchain",
-      description:
-        "Sécurité informatique web2 et web3, audit de sécurité et recherche de vulnérabilités",
-      duration: "Sur mesure",
+      titleKey: "securityTitle",
+      descriptionKey: "securityDesc",
+      duration: t("custom", language),
       participants: "6-10",
-      level: "Débutant à intermédiaire",
+      levelKey: "beginnerToIntermediate",
       tjm: "440€",
       technologies: [
         "Qualys",
@@ -97,32 +106,30 @@ export const Formations: React.FC = () => {
         "Slither",
         "Solhint",
         "Web3 Security",
-        "Audit de sécurité",
+        language === "fr" ? "Audit de sécurité" : "Security Audit",
       ],
     },
     {
-      title: "Anglais Professionnel",
-      description:
-        "Cours de langue anglaise en contexte professionnel : prise de parole, rédaction, comptes rendus",
-      duration: "Sur mesure",
+      titleKey: "englishTitle",
+      descriptionKey: "englishDesc",
+      duration: t("custom", language),
       participants: "10-12",
-      level: "Débutant à intermédiaire",
+      levelKey: "beginnerToIntermediate",
       tjm: "320€",
       technologies: [
-        "Anglais business",
-        "Prise de parole",
-        "Rédaction",
-        "Compte rendu",
+        language === "fr" ? "Anglais business" : "Business English",
+        language === "fr" ? "Prise de parole" : "Public speaking",
+        language === "fr" ? "Rédaction" : "Writing",
+        language === "fr" ? "Compte rendu" : "Reports",
         "Communication",
       ],
     },
     {
-      title: "Gestion de Projets",
-      description:
-        "Méthodes Agile et SCRUM, outils de gestion de projet pour équipes tech",
-      duration: "Sur mesure",
+      titleKey: "projectMgmtTitle",
+      descriptionKey: "projectMgmtDesc",
+      duration: t("custom", language),
       participants: "10-15",
-      level: "Débutant à Intermédiaire",
+      levelKey: "beginnerToIntermediate",
       tjm: "340€",
       technologies: [
         "Agile",
@@ -141,25 +148,21 @@ export const Formations: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Catalogue de Formations
+            {t("formationsTitle", language)}
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
-            Formations professionnelles sur mesure en développement web,
-            blockchain, IA, sécurité, anglais et gestion de projets. Programmes
-            adaptés avec tarification journalière transparente.
+            {t("formationsDescription", language)}
           </p>
 
-          {/* Bouton de téléchargement du catalogue */}
           <button
             onClick={handleDownloadCatalogue}
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl"
           >
             <Download size={20} />
-            Télécharger le catalogue de formations
+            {t("downloadCatalog", language)}
           </button>
         </div>
 
-        {/* Grid des formations */}
         <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8 mb-16">
           {formations.map((formation, index) => (
             <div
@@ -169,10 +172,10 @@ export const Formations: React.FC = () => {
               <div className="flex items-start gap-4 mb-4">
                 <div className="flex-1">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                    {formation.title}
+                    {t(formation.titleKey, language)}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    {formation.description}
+                    {t(formation.descriptionKey, language)}
                   </p>
                 </div>
               </div>
@@ -185,22 +188,26 @@ export const Formations: React.FC = () => {
                 <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <Users size={16} />
                   <span className="text-sm">
-                    {formation.participants} participants
+                    {formation.participants} {t("participants", language)}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
                   <Award size={16} />
-                  <span className="text-sm">Niveau : {formation.level}</span>
+                  <span className="text-sm">
+                    {t("level", language)} : {t(formation.levelKey, language)}
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 text-orange-600 dark:text-orange-400 font-semibold">
                   <span className="text-sm">💰</span>
-                  <span className="text-sm">TJM : {formation.tjm}</span>
+                  <span className="text-sm">
+                    {t("tjm", language)} : {formation.tjm}
+                  </span>
                 </div>
               </div>
 
               <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
                 <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-2">
-                  Technologies abordées :
+                  {t("technologiesCovered", language)}
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {formation.technologies.map((tech, techIndex) => (
@@ -217,10 +224,9 @@ export const Formations: React.FC = () => {
           ))}
         </div>
 
-        {/* Section d'informations complémentaires */}
         <div className="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8">
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-            Informations Pratiques
+            {t("practicalInfo", language)}
           </h3>
 
           <div className="grid md:grid-cols-4 gap-8">
@@ -232,11 +238,10 @@ export const Formations: React.FC = () => {
                 />
               </div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                Formations Personnalisées
+                {t("personalizedTraining", language)}
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Programmes adaptés à votre niveau et vos objectifs
-                professionnels
+                {t("personalizedDesc", language)}
               </p>
             </div>
 
@@ -248,10 +253,10 @@ export const Formations: React.FC = () => {
                 />
               </div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                En groupe ou individuel
+                {t("groupOrIndividual", language)}
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Maximum 15 participants pour un suivi personnalisé optimal
+                {t("groupDesc", language)}
               </p>
             </div>
 
@@ -263,10 +268,10 @@ export const Formations: React.FC = () => {
                 />
               </div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                En présentiel ou distanciel
+                {t("inPersonOrRemote", language)}
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Formations disponibles en visio ou en centre. Pour des cours individuels, je peux venir à domicile
+                {t("locationDesc", language)}
               </p>
             </div>
 
@@ -278,29 +283,28 @@ export const Formations: React.FC = () => {
                 />
               </div>
               <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                Certification
+                {t("certification", language)}
               </h4>
               <p className="text-gray-600 dark:text-gray-300 text-sm">
-                Certificat de fin de formation reconnu par l'industrie
+                {t("certificationDesc", language)}
               </p>
             </div>
           </div>
 
           <div className="text-center mt-8">
             <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Intéressé par une formation ? Téléchargez le catalogue complet
-              pour plus de détails.
+              {t("interestedInTraining", language)}
             </p>
-            <button
-              onClick={handleDownloadCatalogue}
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-200"
-            >
-              <Download size={16} />
-              Catalogue PDF
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+                        <button
+                          onClick={handleDownloadCatalogue}
+                          className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 rounded-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl"
+                        >
+                          <Download size={20} />
+                          {t("downloadCatalog", language)}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              );
+            };

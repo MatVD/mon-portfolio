@@ -3,15 +3,19 @@ import { ExternalLink, Github } from "lucide-react";
 import milodie from "../assets/images/milodie.gif";
 import marketplace from "../assets/images/marketplace.gif";
 import twocrytoApp from "../assets/images/2cryptoApp.gif";
-import { Project } from "../types";
+import { Language, Project } from "../types";
+import { t } from "../lib/translations";
 
-export const Projects: React.FC = () => {
+interface ProjectsProps {
+  language: Language;
+}
+
+export const Projects: React.FC<ProjectsProps> = ({ language }) => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Platform e-commerce",
-      description:
-        "Plateforme e-commerce complète avec gestion des commandes, paiements et tableau de bord administrateur.",
+      title: t("project1Title", language),
+      description: t("project1Description", language),
       image: milodie,
       technologies: ["Symfony", "Stripe", "React", "TypeScript"],
       githubUrl: "https://github.com/mathieu/ecommerce-platform",
@@ -19,10 +23,8 @@ export const Projects: React.FC = () => {
     },
     {
       id: 2,
-      title: "Dashboard Foodtruck",
-      description:
-        "Tableau de bord pour la gestion des ventes et des stocks d'un foodtruck.",
-      // Image d'un foodtruck
+      title: t("project2Title", language),
+      description: t("project2Description", language),
       image:
         "https://crazee-burger-matvd.vercel.app/assets/burger-background-2885f495.webp",
       technologies: ["React", "TypeScript", "Node.js"],
@@ -31,8 +33,8 @@ export const Projects: React.FC = () => {
     },
     {
       id: 3,
-      title: "NFTs",
-      description: "Création de NFTs",
+      title: t("project3Title", language),
+      description: t("project3Description", language),
       image:
         "https://i.seadn.io/s/raw/files/406267207152fc628847f75b4e3d39f7.webp?auto=format&dpr=1&w=1000",
       technologies: ["Solidity", "Hardhat", "Sepolia", "Pinata", "Metamask"],
@@ -42,17 +44,15 @@ export const Projects: React.FC = () => {
     },
     {
       id: 4,
-      title: "Marketplace NFTs",
-      description:
-        "Marketplace pour les NFTs avec fonctionnalités de mint, achat/vente et enchères.",
+      title: t("project4Title", language),
+      description: t("project4Description", language),
       image: marketplace,
       technologies: ["React", "TypeScript", "Solidity", "Pinata", "Metamask"],
     },
     {
       id: 5,
-      title: "Learning Management System",
-      description:
-        "Système de gestion d'apprentissage avec cours en ligne, quiz et suivi de progression.",
+      title: t("project5Title", language),
+      description: t("project5Description", language),
       image:
         "https://images.pexels.com/photos/267507/pexels-photo-267507.jpeg?auto=compress&cs=tinysrgb&w=600",
       technologies: ["Symfony", "API Platform", "React", "TypeScript", "MySQL"],
@@ -61,9 +61,8 @@ export const Projects: React.FC = () => {
     },
     {
       id: 6,
-      title: "Platforme de scoring de projet web3 et blockchain",
-      description:
-        "Une plateforme dédiée à l'évaluation et au scoring de projets web3 et blockchain, permettant aux utilisateurs de soumettre leurs projets et de recevoir des évaluations détaillées.",
+      title: t("project6Title", language),
+      description: t("project6Description", language),
       image: twocrytoApp,
       technologies: ["Symfony", "API Platform", "React", "TypeScript", "IA"],
       liveUrl: "https://app.2crypto.io/",
@@ -76,11 +75,10 @@ export const Projects: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Mes Projets
+              {t("projectsTitle", language)}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Découvrez une sélection de projets récents qui illustrent mon
-              expertise en développement web et blockchain.
+              {t("projectsDescription", language)}
             </p>
           </div>
 
@@ -128,7 +126,7 @@ export const Projects: React.FC = () => {
                         className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                       >
                         <Github size={16} />
-                        <span className="text-sm">Code</span>
+                        <span className="text-sm">{t("code", language)}</span>
                       </a>
                     )}
                     {project.liveUrl && (
@@ -139,7 +137,7 @@ export const Projects: React.FC = () => {
                         className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                       >
                         <ExternalLink size={16} />
-                        <span className="text-sm">Demo</span>
+                        <span className="text-sm">{t("demo", language)}</span>
                       </a>
                     )}
                   </div>

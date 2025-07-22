@@ -1,12 +1,18 @@
-import React from 'react';
-import photoProfile from '../assets/images/photo-profile.png';
-import { Github, Linkedin, Mail } from 'lucide-react';
+import React from "react";
+import photoProfile from "../assets/images/photo-profile.png";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { t } from "../lib/translations";
+import { Language } from "../types";
 
-export const Hero: React.FC = () => {
+interface HeroProps {
+  language: Language;
+}
+
+export const Hero: React.FC<HeroProps> = ({ language }) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -16,38 +22,41 @@ export const Hero: React.FC = () => {
         <div className="animate-fadeIn">
           <div className="mb-8">
             <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-400 to-purple-600 flex items-center justify-center text-white text-4xl font-bold overflow-hidden shadow-lg">
-              <img src={photoProfile} alt="Mathieu Van Damme" className="w-full h-full object-cover" />
+              <img
+                src={photoProfile}
+                alt="Mathieu Van Damme"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
-          
+
           <h1 className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-4">
-            Mathieu Van Damme
+            {t("heroTitle", language)}
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 max-w-4xl mx-auto">
-             Formateur et développeur web2 & blockchain
+            {t("heroSubtitle", language)}
           </p>
-          
+
           <p className="text-lg text-gray-500 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
-            Passionné par la création d'applications web modernes et performantes, 
-            je transforme vos idées en solutions digitales innovantes.
+            {t("heroDescription", language)}
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
               className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-colors transform hover:scale-105 duration-200"
             >
-              Me contacter
+              {t("contactMe", language)}
             </button>
             <button
-              onClick={() => scrollToSection('projects')}
+              onClick={() => scrollToSection("projects")}
               className="px-8 py-3 border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white font-semibold rounded-lg transition-colors transform hover:scale-105 duration-200"
             >
-              Voir mes projets
+              {t("viewProjects", language)}
             </button>
           </div>
-          
+
           <div className="flex justify-center space-x-6 mb-12">
             <a
               href="https://github.com/MatVD"
@@ -63,10 +72,13 @@ export const Hero: React.FC = () => {
               rel="noopener noreferrer"
               className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors transform hover:scale-110 duration-200"
             >
-              <Linkedin size={24} className="text-gray-700 dark:text-gray-300" />
+              <Linkedin
+                size={24}
+                className="text-gray-700 dark:text-gray-300"
+              />
             </a>
             <button
-              onClick={() => scrollToSection('contact')}
+              onClick={() => scrollToSection("contact")}
               className="p-3 bg-gray-100 dark:bg-gray-800 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors transform hover:scale-110 duration-200"
             >
               <Mail size={24} className="text-gray-700 dark:text-gray-300" />
@@ -74,7 +86,7 @@ export const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-200 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-xl opacity-70 animate-blob"></div>

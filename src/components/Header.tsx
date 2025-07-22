@@ -1,16 +1,22 @@
 import React from "react";
-import { Moon, Sun, Menu, X } from "lucide-react";
+import { Moon, Sun, Menu, X, Languages } from "lucide-react";
 import photoProfile from "../assets/images/photo-profile.png";
 import { useState } from "react";
+import { t } from "../lib/translations";
+import { Language } from "../types";
 
 interface HeaderProps {
   isDarkMode: boolean;
   toggleDarkMode: () => void;
+  language: Language;
+  changeLanguage: (newLanguage: string) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
   isDarkMode,
   toggleDarkMode,
+  language,
+  changeLanguage,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -20,6 +26,11 @@ export const Header: React.FC<HeaderProps> = ({
       element.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
+  };
+
+  const handleLanguageToggle = () => {
+    const newLanguage = language === "fr" ? "en" : "fr";
+    changeLanguage(newLanguage);
   };
 
   return (
@@ -40,37 +51,52 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => scrollToSection("about")}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              À propos
+              {t("about", language)}
             </button>
             <button
               onClick={() => scrollToSection("projects")}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              Projets
+              {t("projects", language)}
             </button>
             <button
               onClick={() => scrollToSection("skills")}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              Compétences
+              {t("skills", language)}
             </button>
             <button
               onClick={() => scrollToSection("formations")}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              Formations
+              {t("formations", language)}
             </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              Contact
+              {t("contact", language)}
             </button>
+
+            {/* Language Toggle */}
+            <button
+              onClick={handleLanguageToggle}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-gray-700 dark:text-gray-200 flex items-center gap-1"
+              aria-label={`Switch to ${
+                language === "fr" ? "English" : "French"
+              }`}
+            >
+              <Languages size={16} />
+              <span className="text-sm font-medium uppercase">{language}</span>
+            </button>
+
             <button
               onClick={toggleDarkMode}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-gray-700 dark:text-gray-200"
               aria-label={
-                isDarkMode ? "Activer le mode clair" : "Activer le mode sombre"
+                isDarkMode
+                  ? t("toggleLightMode", language)
+                  : t("toggleDarkMode", language)
               }
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -80,10 +106,22 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center space-x-4">
             <button
+              onClick={handleLanguageToggle}
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-gray-700 dark:text-gray-200 flex items-center gap-1"
+              aria-label={`Switch to ${
+                language === "fr" ? "English" : "French"
+              }`}
+            >
+              <Languages size={16} />
+              <span className="text-xs font-medium uppercase">{language}</span>
+            </button>
+            <button
               onClick={toggleDarkMode}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-gray-700 dark:text-gray-200"
               aria-label={
-                isDarkMode ? "Activer le mode clair" : "Activer le mode sombre"
+                isDarkMode
+                  ? t("toggleLightMode", language)
+                  : t("toggleDarkMode", language)
               }
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
@@ -91,7 +129,9 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-gray-700 dark:text-gray-200"
-              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-label={
+                isMenuOpen ? t("closeMenu", language) : t("openMenu", language)
+              }
             >
               {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
@@ -106,31 +146,31 @@ export const Header: React.FC<HeaderProps> = ({
                 onClick={() => scrollToSection("about")}
                 className="text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                À propos
+                {t("about", language)}
               </button>
               <button
                 onClick={() => scrollToSection("projects")}
                 className="text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                Projets
+                {t("projects", language)}
               </button>
               <button
                 onClick={() => scrollToSection("skills")}
                 className="text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                Compétences
+                {t("skills", language)}
               </button>
               <button
                 onClick={() => scrollToSection("formations")}
                 className="text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                Formations
+                {t("formations", language)}
               </button>
               <button
                 onClick={() => scrollToSection("contact")}
                 className="text-left text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                Contact
+                {t("contact", language)}
               </button>
             </div>
           </nav>

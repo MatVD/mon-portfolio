@@ -1,7 +1,13 @@
-import React from 'react';
-import { Heart, Github, Linkedin, Mail } from 'lucide-react';
+import React from "react";
+import { Github, Linkedin, Mail } from "lucide-react";
+import { t } from "../lib/translations";
+import { Language } from "../types";
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  language: Language;
+}
+
+export const Footer: React.FC<FooterProps> = ({ language }) => {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -12,12 +18,11 @@ export const Footer: React.FC = () => {
             <div>
               <h3 className="text-2xl font-bold mb-4">Mathieu</h3>
               <p className="text-gray-400 mb-4">
-                Développeur fullstack passionné par les technologies web modernes 
-                et les solutions blockchain innovantes.
+                {t("footerDescription", language)}
               </p>
               <div className="flex space-x-4">
                 <a
-                  href="https://github.com/mathieu"
+                  href="https://github.com/MatVD"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -25,7 +30,7 @@ export const Footer: React.FC = () => {
                   <Github size={20} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/mathieu"
+                  href="https://www.linkedin.com/in/mathieu-vandamme"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gray-400 hover:text-white transition-colors"
@@ -42,74 +47,90 @@ export const Footer: React.FC = () => {
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4">Navigation</h4>
+              <h4 className="text-lg font-semibold mb-4">
+                {t("navigation", language)}
+              </h4>
               <ul className="space-y-2">
                 <li>
                   <button
                     onClick={() => {
-                      const element = document.getElementById('about');
-                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                      const element = document.getElementById("about");
+                      if (element)
+                        element.scrollIntoView({ behavior: "smooth" });
                     }}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    À propos
+                    {t("about", language)}
                   </button>
                 </li>
                 <li>
                   <button
                     onClick={() => {
-                      const element = document.getElementById('projects');
-                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                      const element = document.getElementById("projects");
+                      if (element)
+                        element.scrollIntoView({ behavior: "smooth" });
                     }}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Projets
+                    {t("projects", language)}
                   </button>
                 </li>
                 <li>
                   <button
                     onClick={() => {
-                      const element = document.getElementById('skills');
-                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                      const element = document.getElementById("skills");
+                      if (element)
+                        element.scrollIntoView({ behavior: "smooth" });
                     }}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Compétences
+                    {t("skills", language)}
                   </button>
                 </li>
                 <li>
                   <button
                     onClick={() => {
-                      const element = document.getElementById('contact');
-                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                      const element = document.getElementById("formations");
+                      if (element)
+                        element.scrollIntoView({ behavior: "smooth" });
                     }}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
-                    Contact
+                    {t("formations", language)}
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => {
+                      const element = document.getElementById("contact");
+                      if (element)
+                        element.scrollIntoView({ behavior: "smooth" });
+                    }}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    {t("contact", language)}
                   </button>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-4">Contact</h4>
-              <p className="text-gray-400 mb-2">
-                📧 contact@mat-site-web.com
-              </p>
+              <h4 className="text-lg font-semibold mb-4">
+                {t("contact", language)}
+              </h4>
+              <p className="text-gray-400 mb-2">📧 contact@mat-site-web.com</p>
               <p className="text-gray-400 mb-4">
-                🌍 Disponible pour missions freelance
+                🌍 {t("freelanceAvailable", language)}
               </p>
               <p className="text-gray-400 text-sm">
-                N'hésitez pas à me contacter pour discuter de vos projets !
+                {t("contactDiscuss", language)}
               </p>
             </div>
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center">
             <p className="text-gray-400 flex items-center justify-center">
-              © {currentYear} Mathieu. Développé avec 
-              <Heart size={16} className="text-red-500 mx-1" /> 
-              et React + TypeScript
+              © Copyright {currentYear} - Van Damme Mathieu.
             </p>
           </div>
         </div>

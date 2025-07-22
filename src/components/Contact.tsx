@@ -1,13 +1,26 @@
-import React, { useState, useEffect } from 'react';
-import { Mail, MessageSquare, User, Send, CheckCircle, AlertCircle, ExternalLink } from 'lucide-react';
-import { ContactForm } from '../types';
-import { EmailService } from '../services/emailService';
+import React, { useState, useEffect } from "react";
+import {
+  Mail,
+  MessageSquare,
+  User,
+  Send,
+  CheckCircle,
+  AlertCircle,
+  ExternalLink,
+} from "lucide-react";
+import { ContactForm, Language } from "../types";
+import { EmailService } from "../services/emailService";
+import { t } from "../lib/translations";
 
-export const Contact: React.FC = () => {
+interface ContactProps {
+  language: Language;
+}
+
+export const Contact: React.FC<ContactProps> = ({ language }) => {
   const [formData, setFormData] = useState<ContactForm>({
-    name: '',
-    email: '',
-    message: ''
+    name: "",
+    email: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -20,68 +33,68 @@ export const Contact: React.FC = () => {
 
   const validateForm = (): boolean => {
     const newErrors: Partial<ContactForm> = {};
-    
+
     if (!formData.name.trim()) {
-      newErrors.name = 'Le nom est requis';
+      newErrors.name = t("nameRequired", language);
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = 'Le nom doit contenir au moins 2 caractères';
+      newErrors.name = t("nameMinLength", language);
     }
-    
+
     if (!formData.email.trim()) {
-      newErrors.email = 'L\'email est requis';
+      newErrors.email = t("emailRequired", language);
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Email invalide';
+      newErrors.email = t("emailInvalid", language);
     }
-    
+
     if (!formData.message.trim()) {
-      newErrors.message = 'Le message est requis';
+      newErrors.message = t("messageRequired", language);
     } else if (formData.message.trim().length < 10) {
-      newErrors.message = 'Le message doit contenir au moins 10 caractères';
+      newErrors.message = t("messageMinLength", language);
     }
-    
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
-    
+
     setIsSubmitting(true);
     setSubmitError(null);
-    
+
     try {
       const success = await EmailService.sendContactEmail(formData);
-      
+
       if (success) {
         setIsSubmitted(true);
-        setFormData({ name: '', email: '', message: '' });
-        
+        setFormData({ name: "", email: "", message: "" });
+
         // Reset success message after 8 seconds
         setTimeout(() => setIsSubmitted(false), 8000);
       } else {
-        throw new Error('Échec de l\'envoi');
+        throw new Error("Échec de l'envoi");
       }
     } catch (error) {
-      console.error('Erreur lors de l\'envoi:', error);
-      setSubmitError(
-        'Une erreur est survenue lors de l\'envoi. Vous pouvez essayer de m\'envoyer un email directement.'
-      );
+      console.error("Erreur lors de l'envoi:", error);
+      setSubmitError(t("submitError", language));
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-    
+    setFormData((prev) => ({ ...prev, [name]: value }));
+
     // Clear error when user starts typing
     if (errors[name as keyof ContactForm]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
-    
+
     // Clear submit error when user modifies form
     if (submitError) {
       setSubmitError(null);
@@ -98,19 +111,21 @@ export const Contact: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto text-center">
             <div className="bg-green-50 dark:bg-green-900/20 rounded-2xl p-8">
-              <CheckCircle size={64} className="text-green-600 dark:text-green-400 mx-auto mb-4" />
+              <CheckCircle
+                size={64}
+                className="text-green-600 dark:text-green-400 mx-auto mb-4"
+              />
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                Message envoyé avec succès !
+                {t("messageSuccess", language)}
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-6">
-                Merci pour votre message, <strong>{formData.name || 'cher visiteur'}</strong>. 
-                Je vous recontacterai dans les plus brefs délais à l'adresse <strong>{formData.email}</strong>.
+                {t("messageSuccessDesc", language)}
               </p>
               <button
                 onClick={() => setIsSubmitted(false)}
                 className="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors"
               >
-                Envoyer un autre message
+                {t("sendAnother", language)}
               </button>
             </div>
           </div>
@@ -125,11 +140,10 @@ export const Contact: React.FC = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Contactez-moi
+              {t("contactTitle", language)}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Un projet en tête ? Une question ? N'hésitez pas à me contacter. 
-              Je serais ravi de discuter de vos besoins et de vos idées.
+              {t("contactDescription", language)}
             </p>
           </div>
 
@@ -137,23 +151,26 @@ export const Contact: React.FC = () => {
             <div className="space-y-8">
               <div>
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
-                  Parlons de votre projet
+                  {t("letsDiscuss", language)}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-6">
-                  Que vous ayez besoin d'une application web, d'une API, 
-                  d'un smart contract ou d'une solution complète, 
-                  je suis là pour vous accompagner.
+                  {t("contactIntro", language)}
                 </p>
               </div>
 
               <div className="space-y-4">
                 <div className="flex items-center space-x-4">
                   <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
-                    <Mail className="text-blue-600 dark:text-blue-300" size={20} />
+                    <Mail
+                      className="text-blue-600 dark:text-blue-300"
+                      size={20}
+                    />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Email</h4>
-                    <a 
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      {t("email", language)}
+                    </h4>
+                    <a
                       href="mailto:contact@mat-site-web.com"
                       className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
@@ -164,11 +181,18 @@ export const Contact: React.FC = () => {
 
                 <div className="flex items-center space-x-4">
                   <div className="p-3 bg-green-100 dark:bg-green-900 rounded-lg">
-                    <MessageSquare className="text-green-600 dark:text-green-300" size={20} />
+                    <MessageSquare
+                      className="text-green-600 dark:text-green-300"
+                      size={20}
+                    />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900 dark:text-white">Réponse</h4>
-                    <p className="text-gray-600 dark:text-gray-300">Sous 24h en moyenne</p>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      {t("response", language)}
+                    </h4>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      {t("responseTime", language)}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -178,7 +202,10 @@ export const Contact: React.FC = () => {
               {submitError && (
                 <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
                   <div className="flex items-start">
-                    <AlertCircle className="text-red-600 dark:text-red-400 mt-0.5 mr-3" size={20} />
+                    <AlertCircle
+                      className="text-red-600 dark:text-red-400 mt-0.5 mr-3"
+                      size={20}
+                    />
                     <div className="flex-1">
                       <p className="text-red-800 dark:text-red-200 text-sm mb-2">
                         {submitError}
@@ -189,7 +216,7 @@ export const Contact: React.FC = () => {
                         className="inline-flex items-center text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 text-sm font-medium"
                       >
                         <ExternalLink size={16} className="mr-1" />
-                        Ouvrir mon client email
+                        {t("openEmailClient", language)}
                       </button>
                     </div>
                   </div>
@@ -197,8 +224,11 @@ export const Contact: React.FC = () => {
               )}
 
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Nom *
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
+                  {t("name", language)} *
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -211,9 +241,11 @@ export const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className={`block w-full pl-10 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 ${
-                      errors.name ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+                      errors.name
+                        ? "border-red-500"
+                        : "border-gray-300 dark:border-gray-600"
                     }`}
-                    placeholder="Votre nom complet"
+                    placeholder={t("fullName", language)}
                     disabled={isSubmitting}
                   />
                 </div>
@@ -226,8 +258,11 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Email *
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
+                  {t("email", language)} *
                 </label>
                 <div className="relative">
                   <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -240,9 +275,11 @@ export const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className={`block w-full pl-10 pr-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 ${
-                      errors.email ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+                      errors.email
+                        ? "border-red-500"
+                        : "border-gray-300 dark:border-gray-600"
                     }`}
-                    placeholder="votre@email.com"
+                    placeholder={t("emailPlaceholder", language)}
                     disabled={isSubmitting}
                   />
                 </div>
@@ -255,8 +292,11 @@ export const Contact: React.FC = () => {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Message *
+                <label
+                  htmlFor="message"
+                  className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                >
+                  {t("message", language)} *
                 </label>
                 <textarea
                   id="message"
@@ -265,9 +305,11 @@ export const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   className={`block w-full px-3 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 resize-none ${
-                    errors.message ? 'border-red-500' : 'border-gray-300 dark:border-gray-600'
+                    errors.message
+                      ? "border-red-500"
+                      : "border-gray-300 dark:border-gray-600"
                   }`}
-                  placeholder="Décrivez votre projet ou votre question..."
+                  placeholder={t("messagePlaceholder", language)}
                   disabled={isSubmitting}
                 />
                 {errors.message && (
@@ -286,18 +328,18 @@ export const Contact: React.FC = () => {
                 {isSubmitting ? (
                   <>
                     <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
-                    <span>Envoi en cours...</span>
+                    <span>{t("sending", language)}</span>
                   </>
                 ) : (
                   <>
                     <Send size={20} />
-                    <span>Envoyer le message</span>
+                    <span>{t("sendMessage", language)}</span>
                   </>
                 )}
               </button>
 
               <p className="text-xs text-gray-500 dark:text-gray-400 text-center">
-                En soumettant ce formulaire, vous acceptez que vos données soient utilisées pour vous recontacter.
+                {t("privacyNote", language)}
               </p>
             </form>
           </div>

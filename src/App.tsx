@@ -8,9 +8,11 @@ import { Formations } from "./components/Formations";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { useDarkMode } from "./hooks/useDarkMode";
+import { useLanguage } from "./hooks/useLanguage";
 
 function App() {
   const [isDarkMode, toggleDarkMode] = useDarkMode();
+  const [language, changeLanguage] = useLanguage();
 
   useEffect(() => {
     // Vérifier si les variables d'environnement sont définies
@@ -54,16 +56,21 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
-      <Header isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+      <Header
+        isDarkMode={isDarkMode}
+        toggleDarkMode={toggleDarkMode}
+        language={language}
+        changeLanguage={changeLanguage}
+      />
       <main>
-        <Hero />
-        <Formations />
-        <Skills />
-        <Projects />
-        <About />
-        <Contact />
+        <Hero language={language} />
+        <Formations language={language} />
+        <Skills language={language} />
+        <Projects language={language} />
+        <About language={language} />
+        <Contact language={language} />
       </main>
-      <Footer />
+      <Footer language={language} />
     </div>
   );
 }
