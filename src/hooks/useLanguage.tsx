@@ -2,10 +2,10 @@ import { useState, useEffect, useCallback } from "react";
 import { Language } from "../types";
 
 const SUPPORTED_LANGUAGES: Language[] = ["fr", "en"];
-const DEFAULT_LANGUAGE: Language = "fr";
+const DEFAULT_LANGUAGE: Language = "en";
 const STORAGE_KEY = "portfolio_language";
 
-const detectLanguageFromLocation = (): Language => {
+const detectLanguageFromBrowser = (): Language => {
   if (typeof window === "undefined") return DEFAULT_LANGUAGE;
 
   try {
@@ -74,11 +74,120 @@ const detectLanguageFromLocation = (): Language => {
       return "fr";
     }
 
-    return DEFAULT_LANGUAGE;
+    // Si ce n'est pas francophone, utiliser l'anglais
+    return "en";
   } catch (error) {
     console.warn("Erreur lors de la détection de langue:", error);
     return DEFAULT_LANGUAGE;
   }
+};
+
+const getCountryFromCoordinates = async (
+  lat: number,
+  lon: number
+): Promise<string | null> => {
+  try {
+    // Utiliser une API de géocodage inverse gratuite
+    const response = await fetch(
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lon}&localityLanguage=en`
+    );
+    const data = await response.json();
+    return data.countryCode || null;
+  } catch (error) {
+    console.warn("Erreur lors de la géolocalisation:", error);
+    return null;
+  }
+};
+
+const detectLanguageFromGeolocation = async (): Promise<Language> => {
+  if (typeof window === "undefined") return DEFAULT_LANGUAGE;
+
+  const frenchSpeakingCountries = [
+    "FR",
+    "BE",
+    "CH",
+    "CA",
+    "LU",
+    "MC",
+    "AD",
+    "DZ",
+    "MA",
+    "TN",
+    "SN",
+    "CI",
+    "ML",
+    "BF",
+    "NE",
+    "TD",
+    "CF",
+    "CM",
+    "CG",
+    "CD",
+    "GA",
+    "GQ",
+    "DJ",
+    "KM",
+    "MG",
+    "MU",
+    "SC",
+    "VU",
+    "PF",
+    "NC",
+    "WF",
+    "PM",
+    "RE",
+    "YT",
+    "GF",
+    "GP",
+    "MQ",
+    "BL",
+    "MF",
+  ];
+
+  return new Promise((resolve) => {
+    if (!navigator.geolocation) {
+      console.warn("Géolocalisation non supportée");
+      resolve(detectLanguageFromBrowser());
+      return;
+    }
+
+    const timeoutId = setTimeout(() => {
+      console.warn("Timeout géolocalisation");
+      resolve(detectLanguageFromBrowser());
+    }, 5000);
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        clearTimeout(timeoutId);
+        try {
+          const { latitude, longitude } = position.coords;
+          const countryCode = await getCountryFromCoordinates(
+            latitude,
+            longitude
+          );
+
+          if (countryCode && frenchSpeakingCountries.includes(countryCode)) {
+            resolve("fr");
+          } else {
+            resolve("en");
+          }
+        } catch (error) {
+          console.warn("Erreur lors de la détection du pays:", error);
+          resolve(detectLanguageFromBrowser());
+        }
+      },
+      (error) => {
+        clearTimeout(timeoutId);
+        console.warn("Erreur géolocalisation:", error.message);
+        resolve(detectLanguageFromBrowser());
+      },
+      {
+        timeout: 5000,
+        maximumAge: 300000, // 5 minutes de cache
+        enableHighAccuracy: false,
+      }
+    );
+  });
 };
 
 export const useLanguage = () => {
@@ -95,10 +204,31 @@ export const useLanguage = () => {
           error
         );
       }
-      return detectLanguageFromLocation();
+      // Utiliser la détection basique en premier
+      return detectLanguageFromBrowser();
     }
     return DEFAULT_LANGUAGE;
   });
+
+  useEffect(() => {
+    // Détecter la langue via géolocalisation en arrière-plan
+    const detectAndSetLanguage = async () => {
+      if (typeof window !== "undefined") {
+        try {
+          const saved = localStorage.getItem(STORAGE_KEY);
+          // Si l'utilisateur n'a pas déjà une préférence sauvegardée
+          if (!saved || !SUPPORTED_LANGUAGES.includes(saved as Language)) {
+            const detectedLanguage = await detectLanguageFromGeolocation();
+            setLanguage(detectedLanguage);
+          }
+        } catch (error) {
+          console.warn("Erreur lors de la détection géolocalisée:", error);
+        }
+      }
+    };
+
+    detectAndSetLanguage();
+  }, []);
 
   useEffect(() => {
     try {
