@@ -38,7 +38,6 @@ export class EmailService {
         firstname: formData.name,
         email: formData.email,
         message: formData.message,
-        to_email: "contact@mat-site-web.com",
       };
 
       const response = await emailjs.send(
