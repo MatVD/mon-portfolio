@@ -46,7 +46,7 @@ export const translations: Record<Language, Translations> = {
     blockchain: "Blockchain",
     database: "Base de données",
     toolsDevops: "Outils & DevOps",
-    cloudHosting: "Cloud & Hébergement",
+    ai: "Intelligence Artificielle (IA)",
     alwaysLearning: "Toujours en apprentissage",
     learningDescription: "Je reste constamment à jour avec les dernières technologies et tendances du développement web. La curiosité et l'apprentissage continu sont au cœur de ma démarche professionnelle.",
     
@@ -192,7 +192,7 @@ export const translations: Record<Language, Translations> = {
     blockchain: "Blockchain",
     database: "Database",
     toolsDevops: "Tools & DevOps",
-    cloudHosting: "Cloud & Hosting",
+    ai: "Artificial Intelligence (AI)",
     alwaysLearning: "Always learning",
     learningDescription: "I constantly stay up-to-date with the latest web development technologies and trends. Curiosity and continuous learning are at the heart of my professional approach.",
     

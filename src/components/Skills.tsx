@@ -1,5 +1,5 @@
 import React from "react";
-import { Code, Database, Wrench, Layers, Shield, Globe } from "lucide-react";
+import { Code, Database, Wrench, Layers, Boxes, Brain } from "lucide-react";
 import { Language } from "../types";
 import { t } from "../lib/translations";
 
@@ -42,7 +42,7 @@ export const Skills: React.FC<SkillsProps> = ({ language }) => {
     },
     {
       title: t("blockchain", language),
-      icon: <Shield size={24} />,
+      icon: <Boxes size={24} />,
       color:
         "bg-purple-100 dark:bg-purple-900 text-purple-600 dark:text-purple-300",
       skills: [
@@ -88,19 +88,18 @@ export const Skills: React.FC<SkillsProps> = ({ language }) => {
       ],
     },
     {
-      title: t("cloudHosting", language),
-      icon: <Globe size={24} />,
+      title: t("ai", language),
+      icon: <Brain size={24} />,
       color:
         "bg-indigo-100 dark:bg-indigo-900 text-indigo-600 dark:text-indigo-300",
       skills: [
-        "AWS",
-        "Google Cloud",
-        "Vercel",
-        "Netlify",
-        "Heroku",
-        "DigitalOcean",
-        "Cloudflare",
-        "Firebase",
+        "Microsoft Copilot",
+        "ChatGPT",
+        "Claude Code",
+        "Perplexity",
+        "DALL-E",
+        "Canva AI",
+        "AI agents",
       ],
     },
   ];

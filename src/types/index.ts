@@ -72,7 +72,7 @@ export interface Translations {
   blockchain: string;
   database: string;
   toolsDevops: string;
-  cloudHosting: string;
+  ai: string;
   alwaysLearning: string;
   learningDescription: string;
   
