@@ -16,8 +16,8 @@ export const translations: Record<Language, Translations> = {
     
     // Hero
     heroTitle: "Mathieu Van Damme",
-    heroSubtitle: "Formateur et développeur web2 & blockchain",
-    heroDescription: "Passionné par la création d'applications web modernes et performantes, je transforme vos idées en solutions digitales innovantes.",
+    heroSubtitle: "Formateur certifé et développeur confirmé",
+    heroDescription: "Je créer des applications modernes et performantes. Je forme des développeurs et des professionnels à l'IA, au web et à la blockchain. Transformons vos idées en solutions digitales innovantes.",
     contactMe: "Me contacter",
     viewProjects: "Voir mes projets",
     
@@ -25,7 +25,7 @@ export const translations: Record<Language, Translations> = {
     aboutTitle: "À propos",
     aboutSubtitle: "Qui se cache derrière ce nom à l'allure \"sport de combat\" ?",
     myJourney: "Mon parcours",
-    aboutDescription1: "Fort de plusieurs années d'expérience en développement web, j'ai développé une expertise complète allant du backend avec Symfony et API Platform, au frontend avec React et TypeScript. Ma curiosité m'a également mené vers les technologies blockchain avec Solidity et Hardhat.",
+    aboutDescription1: "Fort de plusieurs années d'expérience en développement web, j'ai développé une expertise complète allant du backend avec Symfony et API Platform, au frontend avec React et TypeScript. Ma curiosité m'a également mené vers les technologies blockchain avec Solidity et Hardhat. J'utilise chaque jor l'IA pour améliorer mes compétences et optimiser mes processus de développement.",
     aboutDescription2: "Je m'épanouis dans la création d'applications web robustes, scalables et user-friendly, en gardant toujours à l'esprit les bonnes pratiques de développement et l'expérience utilisateur.",
     workPhilosophy: "Philosophie de travail",
     philosophyQuote: "La technologie doit servir l'humain. Je m'efforce de créer des solutions qui non seulement répondent aux besoins techniques, mais qui offrent aussi une expérience utilisateur exceptionnelle.",
@@ -162,8 +162,8 @@ export const translations: Record<Language, Translations> = {
     
     // Hero
     heroTitle: "Mathieu Van Damme",
-    heroSubtitle: "Trainer and web2 & blockchain developer",
-    heroDescription: "Passionate about creating modern and high-performance web applications, I transform your ideas into innovative digital solutions.",
+    heroSubtitle: "Certified trainer and experienced developer",
+    heroDescription: "I create modern and efficient applications. I train developers and professionals in AI, web, and blockchain. Let's transform your ideas into innovative digital solutions.",
     contactMe: "Contact me",
     viewProjects: "View my projects",
     
@@ -171,7 +171,7 @@ export const translations: Record<Language, Translations> = {
     aboutTitle: "About",
     aboutSubtitle: "Who's behind this \"martial arts\" sounding name?",
     myJourney: "My journey",
-    aboutDescription1: "With several years of experience in web development, I've developed comprehensive expertise ranging from backend with Symfony and API Platform, to frontend with React and TypeScript. My curiosity has also led me to blockchain technologies with Solidity and Hardhat.",
+    aboutDescription1: "With several years of experience in web development, I've developed comprehensive expertise ranging from backend with Symfony and API Platform, to frontend with React and TypeScript. My curiosity has also led me to blockchain technologies with Solidity and Hardhat. I use AI every day to enhance my skills and optimize my development processes.",
     aboutDescription2: "I thrive in creating robust, scalable and user-friendly web applications, always keeping in mind development best practices and user experience.",
     workPhilosophy: "Work philosophy",
     philosophyQuote: "Technology should serve humanity. I strive to create solutions that not only meet technical needs, but also provide an exceptional user experience.",
