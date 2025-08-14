@@ -25,7 +25,7 @@ export const translations: Record<Language, Translations> = {
     aboutTitle: "À propos",
     aboutSubtitle: "Qui se cache derrière ce nom à l'allure \"sport de combat\" ?",
     myJourney: "Mon parcours",
-    aboutDescription1: "Fort de plusieurs années d'expérience en développement web, j'ai développé une expertise complète allant du backend avec Symfony et API Platform, au frontend avec React et TypeScript. Ma curiosité m'a également mené vers les technologies blockchain avec Solidity et Hardhat. J'utilise chaque jor l'IA pour améliorer mes compétences et optimiser mes processus de développement.",
+    aboutDescription1: "Fort de plusieurs années d'expérience en développement web, j'ai développé une expertise complète allant du backend avec Symfony et API Platform, au frontend avec React et TypeScript. Ma curiosité m'a également mené vers les technologies blockchain avec Solidity et Hardhat. J'utilise chaque jour l'IA pour améliorer mes compétences et optimiser mes processus de développement.",
     aboutDescription2: "Je m'épanouis dans la création d'applications web robustes, scalables et user-friendly, en gardant toujours à l'esprit les bonnes pratiques de développement et l'expérience utilisateur.",
     workPhilosophy: "Philosophie de travail",
     philosophyQuote: "La technologie doit servir l'humain. Je m'efforce de créer des solutions qui non seulement répondent aux besoins techniques, mais qui offrent aussi une expérience utilisateur exceptionnelle.",
