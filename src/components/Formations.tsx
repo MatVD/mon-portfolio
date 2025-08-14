@@ -40,7 +40,7 @@ export const Formations: React.FC<FormationsProps> = ({ language }) => {
       duration: t("custom", language),
       participants: "6-12",
       levelKey: "beginnerToAdvanced",
-      tjm: "390€",
+      tjm: "395€",
       technologies: [
         "HTML/CSS",
         "JavaScript",
@@ -60,7 +60,7 @@ export const Formations: React.FC<FormationsProps> = ({ language }) => {
       duration: t("custom", language),
       participants: "4-8",
       levelKey: "beginnerToIntermediate",
-      tjm: "440€",
+      tjm: "445€",
       technologies: [
         "Solidity",
         "NFTs",
@@ -83,7 +83,7 @@ export const Formations: React.FC<FormationsProps> = ({ language }) => {
       duration: t("custom", language),
       participants: "8-10",
       levelKey: "beginnerToIntermediate",
-      tjm: "490€",
+      tjm: "445€",
       technologies: [
         "Microsoft Copilot",
         "ChatGPT",
@@ -99,7 +99,7 @@ export const Formations: React.FC<FormationsProps> = ({ language }) => {
       duration: t("custom", language),
       participants: "6-10",
       levelKey: "beginnerToIntermediate",
-      tjm: "440€",
+      tjm: "495€",
       technologies: [
         "Qualys",
         "OWASP ZAP",
@@ -115,7 +115,7 @@ export const Formations: React.FC<FormationsProps> = ({ language }) => {
       duration: t("custom", language),
       participants: "10-12",
       levelKey: "beginnerToIntermediate",
-      tjm: "320€",
+      tjm: "340€",
       technologies: [
         language === "fr" ? "Anglais business" : "Business English",
         language === "fr" ? "Prise de parole" : "Public speaking",
@@ -130,7 +130,7 @@ export const Formations: React.FC<FormationsProps> = ({ language }) => {
       duration: t("custom", language),
       participants: "10-15",
       levelKey: "beginnerToIntermediate",
-      tjm: "340€",
+      tjm: "350€",
       technologies: [
         "Agile",
         "SCRUM",
