@@ -146,6 +146,8 @@ export const translations: Record<Language, Translations> = {
     project5Description: "Système de gestion d'apprentissage avec cours en ligne, quiz et suivi de progression.",
     project6Title: "Platforme de scoring de projet web3 et blockchain",
     project6Description: "Une plateforme dédiée à l'évaluation et au scoring de projets web3 et blockchain, permettant aux utilisateurs de soumettre leurs projets et de recevoir des évaluations détaillées.",
+    project7Title: "E-commerce artiste peintre",
+    project7Description: "Une plateforme e-commerce pour une artiste peintre, permettant de vendre ses œuvres en ligne.",
   },
   
   en: {
@@ -292,6 +294,8 @@ export const translations: Record<Language, Translations> = {
     project5Description: "Learning management system with online courses, quizzes and progress tracking.",
     project6Title: "Web3 and Blockchain Project Scoring Platform",
     project6Description: "A platform dedicated to evaluating and scoring web3 and blockchain projects, allowing users to submit their projects and receive detailed evaluations.",
+    project7Title: "E-commerce for a Painter",
+    project7Description: "An e-commerce platform for a painter, allowing the sale of her artworks online.",
   }
 };
 

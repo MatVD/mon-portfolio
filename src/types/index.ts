@@ -172,4 +172,6 @@ export interface Translations {
   project5Description: string;
   project6Title: string;
   project6Description: string;
+  project7Title: string;
+  project7Description: string;
 }

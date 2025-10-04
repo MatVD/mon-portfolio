@@ -3,6 +3,7 @@ import { ExternalLink, Github } from "lucide-react";
 import milodie from "../assets/images/milodie.gif";
 import marketplace from "../assets/images/marketplace.gif";
 import twocrytoApp from "../assets/images/2cryptoApp.gif";
+import lagrandeenfant from "../assets/images/lagrandeenfant.webp";
 import { Language, Project } from "../types";
 import { t } from "../lib/translations";
 
@@ -66,6 +67,14 @@ export const Projects: React.FC<ProjectsProps> = ({ language }) => {
       image: twocrytoApp,
       technologies: ["Symfony", "API Platform", "React", "TypeScript", "IA"],
       liveUrl: "https://app.2crypto.io/",
+    },
+    {
+      id: 7,
+      title: t("project7Title", language),
+      description: t("project7Description", language),
+      image: lagrandeenfant,
+      technologies: ["Symfony", "API Platform", "React", "TypeScript", "MySQL", "Stripe"],
+      liveUrl: "https://lagrandeenfant.com",
     },
   ];
 
