@@ -16,8 +16,8 @@ export const translations: Record<Language, Translations> = {
     
     // Hero
     heroTitle: "Mathieu Van Damme",
-    heroSubtitle: "Formateur certifé et développeur confirmé",
-    heroDescription: "Je créer des applications modernes et performantes. Je forme des développeurs et des professionnels à l'IA, au web et à la blockchain. Transformons vos idées en solutions digitales innovantes.",
+    heroSubtitle: "Formateur certifié et développeur confirmé",
+    heroDescription: "Je crée des applications modernes et performantes. Je forme des développeurs et des professionnels à l'IA, au web et à la blockchain. Transformons vos idées en solutions digitales innovantes.",
     contactMe: "Me contacter",
     viewProjects: "Voir mes projets",
     
