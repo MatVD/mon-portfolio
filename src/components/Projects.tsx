@@ -23,14 +23,20 @@ export const Projects: React.FC<ProjectsProps> = ({ language }) => {
       liveUrl: "https://milodiebijoux.com/",
     },
     {
-      id: 2,
-      title: t("project2Title", language),
-      description: t("project2Description", language),
-      image:
-        "https://crazee-burger-matvd.vercel.app/assets/burger-background-2885f495.webp",
-      technologies: ["React", "TypeScript", "Node.js"],
-      githubUrl: "https://github.com/MatVD/crazee-burger",
-      liveUrl: "https://crazee-burger-matvd.vercel.app/",
+      id: 7,
+      title: t("project7Title", language),
+      description: t("project7Description", language),
+      image: lagrandeenfant,
+      technologies: ["Symfony", "API Platform", "React", "TypeScript", "MySQL", "Stripe"],
+      liveUrl: "https://lagrandeenfant.com",
+    },
+    {
+      id: 6,
+      title: t("project6Title", language),
+      description: t("project6Description", language),
+      image: twocrytoApp,
+      technologies: ["Symfony", "API Platform", "React", "TypeScript", "IA"],
+      liveUrl: "https://app.2crypto.io/",
     },
     {
       id: 3,
@@ -42,6 +48,16 @@ export const Projects: React.FC<ProjectsProps> = ({ language }) => {
       githubUrl: "https://github.com/mathieu/task-management-api",
       liveUrl:
         "https://testnets.opensea.io/fr/assets/sepolia/0x20b73972962c00b0c19bfa03d997cf63c207a3e0/1",
+    },
+    {
+      id: 2,
+      title: t("project2Title", language),
+      description: t("project2Description", language),
+      image:
+        "https://crazee-burger-matvd.vercel.app/assets/burger-background-2885f495.webp",
+      technologies: ["React", "TypeScript", "Node.js"],
+      githubUrl: "https://github.com/MatVD/crazee-burger",
+      liveUrl: "https://crazee-burger-matvd.vercel.app/",
     },
     {
       id: 4,
@@ -59,22 +75,6 @@ export const Projects: React.FC<ProjectsProps> = ({ language }) => {
       technologies: ["Symfony", "API Platform", "React", "TypeScript", "MySQL"],
       githubUrl: "https://github.com/mathieu/lms-platform",
       liveUrl: "https://lms-demo.com",
-    },
-    {
-      id: 6,
-      title: t("project6Title", language),
-      description: t("project6Description", language),
-      image: twocrytoApp,
-      technologies: ["Symfony", "API Platform", "React", "TypeScript", "IA"],
-      liveUrl: "https://app.2crypto.io/",
-    },
-    {
-      id: 7,
-      title: t("project7Title", language),
-      description: t("project7Description", language),
-      image: lagrandeenfant,
-      technologies: ["Symfony", "API Platform", "React", "TypeScript", "MySQL", "Stripe"],
-      liveUrl: "https://lagrandeenfant.com",
     },
   ];
 
